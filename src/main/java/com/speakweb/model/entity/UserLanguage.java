@@ -12,6 +12,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -26,11 +28,13 @@ public class UserLanguage  implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; // Id único temporal para evitar la PK compuesta
 
-	@Column(name = "user_id")
-	private int id_user;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
-	@Column(name = "language_id")
-	private int language_id;
+	@ManyToOne
+	@JoinColumn(name = "language_id")
+	private Language language;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "level")
