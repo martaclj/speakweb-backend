@@ -2,11 +2,11 @@ package com.speakweb.model.entity;
 
 import java.io.Serializable;
 
+import com.speakweb.model.entity.pk.GroupMemberId;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -19,9 +19,8 @@ public class GroupMember implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@EmbeddedId 
+	private GroupMemberId id; // Pk compuesta por user_id y group_id
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
