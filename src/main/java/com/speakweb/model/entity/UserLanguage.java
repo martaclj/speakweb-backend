@@ -4,14 +4,13 @@ import java.io.Serializable;
 
 import com.speakweb.model.entity.enums.Level;
 import com.speakweb.model.entity.enums.UserLangType;
+import com.speakweb.model.entity.pk.UserLanguageId;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -24,9 +23,8 @@ public class UserLanguage  implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id; // Id único temporal para evitar la PK compuesta
+	@EmbeddedId 
+	private UserLanguageId id; // PK compuesta: user_id y language_id
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
