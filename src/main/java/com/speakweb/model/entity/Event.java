@@ -37,4 +37,7 @@ public class Event implements Serializable {
 	
 	@Column(name = "external_link")
 	private String externalLink;
+	
+	@Column(name ="location")
+	private String location;
 }
