@@ -11,6 +11,6 @@ import com.speakweb.model.entity.UserLanguage;
 @Repository
 public interface UserLanguageRepository extends JpaRepository<UserLanguage, Integer> {
 
-	List<UserLanguage> findByUser(User user);
+	List<UserLanguage> findByUser(User user); // lista de idiomas asociados al usuario
 	
 }
