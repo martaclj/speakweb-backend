@@ -11,6 +11,6 @@ import com.speakweb.model.entity.Event;
 @Repository
 public interface EventRepository extends JpaRepository<Event, Integer> {
 
-	List<Event> findByGroup(BGroup group);
+	List<Event> findByGroup(BGroup group); // qué eventos hay en este grupo?
 	
 }

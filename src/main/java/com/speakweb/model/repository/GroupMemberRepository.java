@@ -10,7 +10,7 @@ import com.speakweb.model.entity.User;
 @Repository
 public interface GroupMemberRepository extends JpaRepository<GroupMember, Integer>{
 
-	boolean existsByUserAndGroup(User user, BGroup group); // evitamos que un usuario se apunte dos veces mismo grupo
+	boolean existsByUserAndGroup(User user, BGroup group); // usuario es miembro? evitamos que un usuario se apunte dos veces mismo grupo
 	boolean existsByUserAndGroupAndIsExpert(User user, BGroup group, boolean isExpert); // comprobamos condición experto
 	
 }
