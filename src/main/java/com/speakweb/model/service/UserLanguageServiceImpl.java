@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.speakweb.model.entity.User;
+import com.speakweb.model.entity.UserEntity;
 import com.speakweb.model.entity.UserLanguage;
 import com.speakweb.model.repository.UserLanguageRepository;
 
@@ -20,7 +20,7 @@ public class UserLanguageServiceImpl implements UserLanguageService {
 	
 	@Override
 	public List<UserLanguage> getUserLanguage(int userId) {
-		User user = userService.getUserById(userId);
+		UserEntity user = userService.getUserById(userId);
 		return userLanguageRepository.findByUser(user);
 	}
 

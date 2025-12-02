@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.speakweb.model.entity.Event;
 import com.speakweb.model.entity.EventParticipant;
-import com.speakweb.model.entity.User;
+import com.speakweb.model.entity.UserEntity;
 import com.speakweb.model.repository.EventParticipantRepository;
 import com.speakweb.model.repository.EventRepository;
 
@@ -26,7 +26,7 @@ public class EventParticipantServiceImpl implements EventParticipantService {
 	@Override
 	public boolean isUserInEvent(int userId, int eventId) {
 
-		User user = userService.getUserById(userId);
+		UserEntity user = userService.getUserById(userId);
 		Event event = eventRepository.findById(eventId).orElse(null);
 		
 		if (user == null || event == null) {
@@ -39,7 +39,7 @@ public class EventParticipantServiceImpl implements EventParticipantService {
 	@Override
 	public EventParticipant addUserToEvent(int userId, int eventId) {
 
-		User user = userService.getUserById(userId);
+		UserEntity user = userService.getUserById(userId);
 		Event event = eventRepository.findById(eventId).orElse(null);
 
 		if (user == null || event == null) {
@@ -70,7 +70,7 @@ public class EventParticipantServiceImpl implements EventParticipantService {
 
 	@Override
 	public List<EventParticipant> getEventsByUser(int userId) {
-		User user = userService.getUserById(userId);
+		UserEntity user = userService.getUserById(userId);
 		
 		return eventParticipantRepository.findByUser(user); // list de usuarios
 	}

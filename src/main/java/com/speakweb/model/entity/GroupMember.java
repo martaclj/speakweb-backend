@@ -25,7 +25,7 @@ public class GroupMember implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user;
+	private UserEntity user;
 	
 	@ManyToOne
 	@JoinColumn(name = "group_id")

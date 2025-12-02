@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.speakweb.model.entity.BGroup;
-import com.speakweb.model.entity.User;
+import com.speakweb.model.entity.UserEntity;
 import com.speakweb.model.entity.enums.Role;
 import com.speakweb.model.repository.GroupMemberRepository;
 import com.speakweb.model.repository.GroupRepository;
@@ -24,7 +24,7 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 	@Override
 	public boolean isAdmin(int userId) {
 
-		User user = userService.getUserById(userId);
+		UserEntity user = userService.getUserById(userId);
 		
 		if (user == null) {
 			return false;
@@ -36,7 +36,7 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 	@Override
 	public boolean isMemberOfGroup(int userId, int groupId) {
 
-		User user = userService.getUserById(userId);
+		UserEntity user = userService.getUserById(userId);
 		BGroup group = groupRepository.findById(groupId).orElse(null);
 		
 		if (user == null || group == null) {
@@ -50,7 +50,7 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 	@Override
 	public boolean isExpertInGroup(int userId, int groupId) {
 
-		User user = userService.getUserById(userId);
+		UserEntity user = userService.getUserById(userId);
 		BGroup group = groupRepository.findById(groupId).orElse(null);
 		
 		if (user == null || group == null) {
