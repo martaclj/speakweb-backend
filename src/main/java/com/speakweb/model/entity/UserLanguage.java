@@ -33,7 +33,7 @@ public class UserLanguage  implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user;
+	private UserEntity user;
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")

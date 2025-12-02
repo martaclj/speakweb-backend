@@ -1,13 +1,13 @@
 package com.speakweb.model.service;
 
-import com.speakweb.model.entity.User;
+import com.speakweb.model.entity.UserEntity;
 
 public interface UserService {
 
 
-	User getUserById(int id);
-	User getUserByEmail(String email);
+	UserEntity getUserById(int id);
+	UserEntity getUserByEmail(String email);
 	boolean userExistsByEmail(String email);
-	User save(User user);
+	UserEntity save(UserEntity user);
 	
 }

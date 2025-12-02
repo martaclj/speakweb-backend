@@ -7,13 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import com.speakweb.model.entity.Event;
 import com.speakweb.model.entity.EventParticipant;
-import com.speakweb.model.entity.User;
+import com.speakweb.model.entity.UserEntity;
 
 @Repository
 public interface EventParticipantRepository extends JpaRepository<EventParticipant, Integer>{
 
-	boolean existsByEventAndUser(Event event, User user); // está apuntado ya al evento?
+	boolean existsByEventAndUser(Event event, UserEntity user); // está apuntado ya al evento?
 	List<EventParticipant> findByEvent(Event event); // lista los participantes de 1 evento
-	List<EventParticipant> findByUser(User user); // a cuántos eventos está apuntado el usuario? eventos en los que está apuntado un usuario
+	List<EventParticipant> findByUser(UserEntity user); // a cuántos eventos está apuntado el usuario? eventos en los que está apuntado un usuario
 	
 }
