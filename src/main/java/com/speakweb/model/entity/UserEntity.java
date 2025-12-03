@@ -1,6 +1,8 @@
 package com.speakweb.model.entity;
 
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.speakweb.model.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -20,6 +22,7 @@ public class UserEntity implements Serializable {
 	private String name;
 	private String surname;
 	private String email;
+	@JsonIgnore
 	private String password;
 	
 	@Enumerated(EnumType.STRING)
