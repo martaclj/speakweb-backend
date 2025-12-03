@@ -47,9 +47,13 @@ public class SecurityConfig {
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
             	.requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
+            	// Rutas públicas de Auth
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/auth/**").permitAll()
             	.requestMatchers("/api/auth/**").permitAll()
-                .anyRequest().authenticated()
+            	// Rutas privadas de Solo ADMIN
+            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAnyAuthority("ROLE_ADMIN")
+                // Todas las demás rutas autenticadas
+            	.anyRequest().authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
