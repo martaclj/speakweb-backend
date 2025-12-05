@@ -10,6 +10,7 @@ import com.speakweb.model.entity.BGroup;
 import com.speakweb.model.entity.Language;
 import com.speakweb.model.repository.GroupRepository;
 import com.speakweb.model.repository.LanguageRepository;
+import com.speakweb.model.repository.UserRepository;
 
 @Service
 public class GroupServiceImpl implements GroupService {
