@@ -28,9 +28,16 @@ public class LanguageController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Language> createLanguage(@RequestBody Language language) {
+	public ResponseEntity<?> createLanguage(@RequestBody Language language) {
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(languageService.save(language));
+		try {
+		
+			return ResponseEntity.status(HttpStatus.CREATED).body(languageService.save(language));
+		
+		} catch (Exception e) {
+			
+			return ResponseEntity.badRequest().body("Error: Probablemente el idioma ya existe.");
+		}
 	}
 
 }

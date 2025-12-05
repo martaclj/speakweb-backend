@@ -29,7 +29,7 @@ public class EventParticipantServiceImpl implements EventParticipantService {
 		UserEntity user = userService.getUserById(userId);
 		Event event = eventRepository.findById(eventId).orElse(null);
 		
-		if (user == null || event == null) {
+		if (user == null || event == null) {	
 			return false;
 		}
 		
@@ -43,13 +43,11 @@ public class EventParticipantServiceImpl implements EventParticipantService {
 		Event event = eventRepository.findById(eventId).orElse(null);
 
 		if (user == null || event == null) {
-			return null;
+			throw new RuntimeException("Evento no encontrado");
 		}
 		
-		// Evitar registros duplicados con existsByEventAndUser
 		if (eventParticipantRepository.existsByEventAndUser(event, user)) {
-			return null;
-			
+			throw new RuntimeException("El usuario ya está apuntado al evento");
 		}
 		
 		EventParticipant participant = new EventParticipant();

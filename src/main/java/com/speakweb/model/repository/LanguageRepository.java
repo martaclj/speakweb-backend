@@ -8,4 +8,6 @@ import com.speakweb.model.entity.Language;
 @Repository
 public interface LanguageRepository  extends JpaRepository<Language, Integer> {
 
+	boolean existsByCode(String code);
+
 }
