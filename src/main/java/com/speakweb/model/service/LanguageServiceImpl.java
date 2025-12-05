@@ -29,6 +29,21 @@ public class LanguageServiceImpl implements LanguageService {
 	@Override
 	public Language save(Language language) {
 
+		// Intentamos que los idiomas sean como los del estándar internacional
+		// ocupan dos letras
+		String code = language.getCode().toUpperCase();
+		language.setCode(code);
+		
+		if(code.length() != 2) {
+			throw new RuntimeException("El código del idioma debe tener 2 letras (Ej: ES, EN)");
+		}
+		
+		// Evitamos crear varias versiones de un mismo idioma (
+		// español --> es o sp, o inglés --> en in)
+		if (languageRepository.existsByCode(code)) {
+			throw new RuntimeException("El idioma con código " + code + " ya existe.");
+		}
+		
 		return languageRepository.save(language); // para añadir más idiomas en el futuro
 	}
 
