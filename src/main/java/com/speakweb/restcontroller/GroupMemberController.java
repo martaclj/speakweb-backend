@@ -43,6 +43,7 @@ public class GroupMemberController {
 	
 	@PostMapping("/join")
 	public ResponseEntity<?> joinGroup(@RequestBody JoinGroupDto dto, Authentication authentication) {
+		
 		try {
 			String email = authentication.getName();
 			

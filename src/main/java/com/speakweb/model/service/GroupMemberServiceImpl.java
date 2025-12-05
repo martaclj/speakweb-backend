@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.speakweb.model.entity.BGroup;
 import com.speakweb.model.entity.GroupMember;
 import com.speakweb.model.entity.UserEntity;
+import com.speakweb.model.entity.UserLanguage;
+import com.speakweb.model.entity.enums.Level;
 import com.speakweb.model.entity.enums.Role;
+import com.speakweb.model.entity.enums.UserLangType;
 import com.speakweb.model.repository.GroupMemberRepository;
 import com.speakweb.model.repository.GroupRepository;
 import com.speakweb.model.repository.UserLanguageRepository;
@@ -96,11 +99,13 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 			throw new RuntimeException("Ya eres miembro de este grupo");
 		}
 		
-		
+		// comprobación nivel de experto o no
+		boolean isExpert = this.calculateExpertStatus(user, group);
 		GroupMember newMember = new GroupMember();
 		newMember.setUser(user);
 		newMember.setGroup(group);
-		newMember.setExpert(false); // por defecto entra como usu normal
+		newMember.setExpert(isExpert);
+		//newMember.setExpert(false); // por defecto entra como usu normal
 		
 		return groupMemberRepository.save(newMember);
 	}
@@ -121,6 +126,36 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 		UserEntity user = userRepository.findByEmail(userEmail);
         return groupMemberRepository.findByUser(user);
 	}
+
+	@Override
+	public boolean calculateExpertStatus(UserEntity user, BGroup group) {
+		
+		List<UserLanguage> userLanguages = userLanguageRepository.findByUser(user);
+		
+		for (UserLanguage userLang : userLanguages) {
+			//¿el idioma del usuario es el idioma 1 o 2 del grupo?
+			boolean isGroupLang1 = userLang.getLanguage().getId() == group.getLanguage1().getId();
+			boolean isGroupLang2 = userLang.getLanguage().getId() == group.getLanguage2().getId();
+
+			if (isGroupLang1 || isGroupLang2) {
+				  
+				boolean isNative = userLang.getType() == UserLangType.NATIVE;
+				boolean isC2Level = userLang.getLevel() == Level.C2;
+				
+				boolean isExpertInLanguage = isNative || isC2Level;
+				
+				if (isExpertInLanguage) {
+					return true; // es experto
+				}
+			}
+			
+		
+		}
+		
+		return false; // es usuario normal en este grupo
+	}
+	
+	
 
 	
 }
