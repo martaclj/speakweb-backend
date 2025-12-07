@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.speakweb.model.dto.LoginRequest;
+import com.speakweb.model.dto.UserDto;
 import com.speakweb.model.dto.UserRegisterDto;
 import com.speakweb.model.entity.UserEntity;
 import com.speakweb.model.mapper.UserMapper;
@@ -65,9 +66,14 @@ public class AuthController {
 			
 			String jwt = jwtUtil.create(authentication.getName());
 			
-			return ResponseEntity.ok()
-					.header(HttpHeaders.AUTHORIZATION, "Bearer " + jwt)
-					.build();
+			UserEntity userEntity = userService.getUserByEmail(loginDto.getEmail());
+			
+			UserDto userDto = UserMapper.toDto(userEntity);
+			
+			userDto.setToken(jwt);
+			
+			return ResponseEntity.ok(userDto);
+
 		} catch (AuthenticationException e) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 	}
