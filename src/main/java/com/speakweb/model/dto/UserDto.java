@@ -16,4 +16,7 @@ public class UserDto {
 	private String surname;
 	private String email;
 	private String role;
+	
+	// añadimos un campo para el token
+	private String token;
 }
