@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.speakweb.model.entity.Language;
 import com.speakweb.model.service.LanguageService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/languages")
+@Tag(name = "07. Gestión idiomas (ADMIN)", description = "Admin crea o elimina idiomas")
 public class LanguageController {
 	
 	@Autowired

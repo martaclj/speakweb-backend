@@ -20,8 +20,11 @@ import com.speakweb.model.service.LanguageService;
 import com.speakweb.model.service.UserLanguageService;
 import com.speakweb.model.service.UserService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/user-languages")
+@Tag(name = "02. Mis Idiomas", description = "Añadir idiomas que el usuario habla o quiere aprender")
 public class UserLanguageController {
 
 	@Autowired
