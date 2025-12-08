@@ -15,8 +15,11 @@ import com.speakweb.model.dto.GroupDto;
 import com.speakweb.model.entity.BGroup;
 import com.speakweb.model.service.GroupService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/groups")
+@Tag(name = "03. Comunidades (Grupos)", description = "Ver todos los grupos disponibles y crear grupos nuevos")
 public class GroupController {
 
 	@Autowired

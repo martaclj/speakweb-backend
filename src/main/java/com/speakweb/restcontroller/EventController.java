@@ -17,8 +17,11 @@ import com.speakweb.model.dto.EventDto;
 import com.speakweb.model.entity.Event;
 import com.speakweb.model.service.EventService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/events")
+@Tag(name = "05. Eventos", description = "Ver y crear eventos-quedadas")
 public class EventController {
 
 	@Autowired

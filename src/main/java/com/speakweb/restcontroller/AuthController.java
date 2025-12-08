@@ -1,7 +1,6 @@
 package com.speakweb.restcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,8 +21,11 @@ import com.speakweb.model.mapper.UserMapper;
 import com.speakweb.model.service.UserService;
 import com.speakweb.security.JwtUtil;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/auth")
+@Tag(name = "01. Autenticación", description = "Endpoints de Registro y Login. Copiar el Bearer Token de la respuesta de Login para ponerlo en Authorize")
 public class AuthController {
 	
 	@Autowired

@@ -19,8 +19,11 @@ import com.speakweb.model.entity.UserEntity;
 import com.speakweb.model.service.EventParticipantService;
 import com.speakweb.model.service.UserService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/event-participants")
+@Tag(name = "06. Asistir a Eventos", description = "Apuntarse a un evento y listar sus participantes")
 public class EventParticipantController {
 
 	@Autowired

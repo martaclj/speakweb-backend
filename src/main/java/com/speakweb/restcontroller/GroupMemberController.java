@@ -17,8 +17,11 @@ import com.speakweb.model.dto.JoinGroupDto;
 import com.speakweb.model.entity.GroupMember;
 import com.speakweb.model.service.GroupMemberService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/group-members")
+@Tag(name = "04. Unirse a grupos", description = "JOIN un grupo y ver Mis Grupos")
 public class GroupMemberController {
 
 	@Autowired

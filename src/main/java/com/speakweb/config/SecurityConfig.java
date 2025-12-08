@@ -47,6 +47,9 @@ public class SecurityConfig {
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
             	.requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
+            	// Rutas para swagger (públicas)
+            	.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+            	
             	// Rutas públicas de Auth
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/auth/**").permitAll()
             	.requestMatchers("/api/auth/**").permitAll()
