@@ -47,4 +47,17 @@ public class LanguageServiceImpl implements LanguageService {
 		return languageRepository.save(language); // para añadir más idiomas en el futuro
 	}
 
+	@Override
+	public void deleteLanguage(int id) {
+		
+		if (languageRepository.existsById(id)) {
+			languageRepository.deleteById(id);
+		
+		} else {
+			
+			throw new RuntimeException("El idioma no existe");
+		}
+		
+	}
+
 }

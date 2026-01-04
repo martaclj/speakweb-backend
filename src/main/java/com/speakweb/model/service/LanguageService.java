@@ -9,4 +9,5 @@ public interface LanguageService {
 	List<Language> getAllLanguages();
 	Language getLanguageById(int id);
 	Language save(Language language);
+	void deleteLanguage(int id);
 }
