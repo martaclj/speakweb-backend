@@ -140,9 +140,10 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 			if (isGroupLang1 || isGroupLang2) {
 				  
 				boolean isNative = userLang.getType() == UserLangType.NATIVE;
-				boolean isC2Level = userLang.getLevel() == Level.C2;
+				// El experto empieza a serlo desde el nivel C1 o C2 para esta app
+				boolean isHighLevel = userLang.getLevel() == Level.C1 || userLang.getLevel() == Level.C2;
 				
-				boolean isExpertInLanguage = isNative || isC2Level;
+				boolean isExpertInLanguage = isNative || isHighLevel;
 				
 				if (isExpertInLanguage) {
 					return true; // es experto
