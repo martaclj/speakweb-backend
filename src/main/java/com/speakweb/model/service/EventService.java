@@ -10,4 +10,5 @@ public interface EventService {
 	Event createEvent(String userEmail, EventDto dto);
 	// Event getEventById(int eventId);
 	List<Event> getEventsByGroup(int groupId); // eventos de un grupo determinado
+	void deleteEvent(int eventId);
 }

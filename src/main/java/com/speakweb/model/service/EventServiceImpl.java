@@ -71,4 +71,15 @@ public class EventServiceImpl implements EventService {
 		return eventRepository.findByGroup(group);
 	}
 
+	@Override
+	public void deleteEvent(int eventId) {
+		
+		if (eventRepository.existsById(eventId)) {
+			eventRepository.deleteById(eventId);
+		} else {
+			throw new RuntimeException("El evento no existe");
+		}
+		
+	}
+
 }

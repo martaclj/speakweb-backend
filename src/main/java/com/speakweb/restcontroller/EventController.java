@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ public class EventController {
 	@Autowired
     private EventService eventService;
 	
+	// Listar grupos
 	@GetMapping("/group/{groupId}")
 	public ResponseEntity<List<Event>> getEventsByGroup(@PathVariable int groupId) {
 		List<Event> events = eventService.getEventsByGroup(groupId);				
@@ -36,6 +38,7 @@ public class EventController {
 		return ResponseEntity.ok(events);
 	}
 	
+	// Crear eventos
 	@PostMapping
 	public ResponseEntity<?> createEvent(@RequestBody EventDto dto, Authentication authentication) {
 		
@@ -47,6 +50,22 @@ public class EventController {
 			
 		} catch (RuntimeException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+		}
+	}
+	
+	// Borrar eventos
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deleteEvent(@PathVariable int id) {
+		try {
+			eventService.deleteEvent(id);
+			
+			return ResponseEntity.ok("Evento cancelado correctamente");
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					.body("No se puede eliminar el evento. Tiene participantes inscritos.");
 		}
 	}
 	
