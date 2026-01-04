@@ -50,7 +50,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return userRepository.save(user);
 	}
 
-	
+	@Override
+	public List<UserEntity> getAllUsers() {
+		return userRepository.findAll();
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		userRepository.deleteById(id);
+	}	
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -75,5 +83,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		
 		return authorities;
 	}
+
 	
 }
