@@ -8,6 +8,8 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     role VARCHAR(15) NOT NULL DEFAULT 'USER',
+    avatar_url VARCHAR(255), -- FOTO DE PERFIL
+    bio VARCHAR(255), -- PRESENTACIÓN USER OPCIONAL
     CHECK (role IN ('USER', 'ADMIN')) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -34,6 +36,8 @@ CREATE TABLE user_languages (
 CREATE TABLE b_groups ( -- Grupos bilingües - groups: p. reservada
 	group_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
+    description VARCHAR(500),
+    image_url VARCHAR(255),
     language1_id INT NOT NULL,
     language2_id INT NOT NULL,
     FOREIGN KEY (language1_id) REFERENCES languages(language_id),
@@ -57,8 +61,10 @@ CREATE TABLE events ( -- solo un experto puede abrirlos
     title VARCHAR(150) NOT NULL,
     description VARCHAR(2000),
     start_time DATETIME NOT NULL,
-    external_link VARCHAR(255) NOT NULL, -- Enlace a llamada de zoom, google meet, etc
-	FOREIGN KEY (group_id) REFERENCES b_groups(group_id)
+    external_link VARCHAR(255), -- Enlace a llamada de zoom, google meet, etc
+	location VARCHAR(255), -- Dirección física si el evento es presencial: Cafetería, universidad, academia..
+    image_url VARCHAR(255),
+    FOREIGN KEY (group_id) REFERENCES b_groups(group_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Antes PK compuesta (event_id, user_id) s/ modelo E-R
