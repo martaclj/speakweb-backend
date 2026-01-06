@@ -25,6 +25,8 @@ public class BGroup implements Serializable { // Bilingual group
 	private int id;
 	
 	private String name;
+	private String description;
+	private String imageUrl;
 	
 	@ManyToOne
 	@JoinColumn(name = "language1_id", referencedColumnName = "language_id")

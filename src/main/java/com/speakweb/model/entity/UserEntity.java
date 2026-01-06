@@ -24,6 +24,8 @@ public class UserEntity implements Serializable {
 	private String email;
 	@JsonIgnore
 	private String password;
+	private String avatarUrl;
+	private String bio;
 	
 	@Enumerated(EnumType.STRING)
 	private Role role = Role.USER;

@@ -50,6 +50,9 @@ public class SecurityConfig {
             	// Rutas para swagger (públicas)
             	.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
             	
+            	// Rutas para student
+            	.requestMatchers("/api/groups/**").authenticated()
+
             	// Rutas públicas de Auth
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/auth/**").permitAll()
             	.requestMatchers("/api/auth/**").permitAll()

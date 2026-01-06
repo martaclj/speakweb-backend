@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class GroupDto {
 
 	private String name;
+	private String description;
+	private String imageUrl;
 	private int language1Id;
 	private int language2Id;
 	

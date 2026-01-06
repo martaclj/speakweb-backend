@@ -51,6 +51,8 @@ public class GroupServiceImpl implements GroupService {
 		newGroup.setName(dto.getName());
 		newGroup.setLanguage1(lang1);
 		newGroup.setLanguage2(lang2);
+		newGroup.setDescription(dto.getDescription());
+		newGroup.setImageUrl(dto.getImageUrl());
 		
 		return groupRepository.save(newGroup);
 	}

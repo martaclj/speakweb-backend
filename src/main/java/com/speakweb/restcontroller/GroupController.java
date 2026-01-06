@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.speakweb.model.dto.GroupDto;
 import com.speakweb.model.entity.BGroup;
+import com.speakweb.model.repository.GroupRepository;
 import com.speakweb.model.service.GroupService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,6 +26,19 @@ public class GroupController {
 
 	@Autowired
 	private GroupService groupService;
+	
+	// Buscar un grupo
+	@GetMapping("/{id}")
+	public ResponseEntity<BGroup> getGroupById(@PathVariable Integer id) {
+		BGroup group = groupService.getGroupById(id);
+		
+		if(group != null) {
+			return ResponseEntity.ok(group);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+		
+	}
 	
 	// List de groups
 	@GetMapping

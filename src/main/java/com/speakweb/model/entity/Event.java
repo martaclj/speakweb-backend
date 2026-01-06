@@ -40,4 +40,5 @@ public class Event implements Serializable {
 	
 	@Column(name ="location")
 	private String location;
+	private String imageUrl;
 }
