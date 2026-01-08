@@ -62,4 +62,16 @@ public class EventParticipantController {
 		return ResponseEntity.ok(list);
 	}
 	
+	@GetMapping("/my-events")
+	public ResponseEntity<List<EventParticipant>> getMyEvents(Authentication authentication) {
+		String email = authentication.getName();
+		
+		UserEntity user = userService.getUserByEmail(email);
+		
+		List<EventParticipant> list = participantService.getEventsByUser(user.getId());
+		
+		return ResponseEntity.ok(list);
+	}
+
+	
 }
