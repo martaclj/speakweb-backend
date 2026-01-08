@@ -28,7 +28,19 @@ public class EventController {
 	@Autowired
     private EventService eventService;
 	
-	// Listar grupos
+	// Obtener evento por id
+	@GetMapping("/{id}")
+	public ResponseEntity<Event> getEventById(@PathVariable int id) {
+		Event event = eventService.getEventById(id);
+		
+		if (event == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(event);
+	}
+	
+	// Listar eventos por grupo
 	@GetMapping("/group/{groupId}")
 	public ResponseEntity<List<Event>> getEventsByGroup(@PathVariable int groupId) {
 		List<Event> events = eventService.getEventsByGroup(groupId);				

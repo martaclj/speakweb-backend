@@ -11,4 +11,5 @@ public interface EventService {
 	// Event getEventById(int eventId);
 	List<Event> getEventsByGroup(int groupId); // eventos de un grupo determinado
 	void deleteEvent(int eventId);
+	Event getEventById(int eventId);
 }

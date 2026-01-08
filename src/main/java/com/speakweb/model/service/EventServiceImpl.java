@@ -52,16 +52,16 @@ public class EventServiceImpl implements EventService {
 		event.setLocation(dto.getLocation());
 		event.setExternalLink(dto.getExternalLink());
 		event.setGroup(group);
+		event.setImageUrl(dto.getImageUrl());
 		
 		return eventRepository.save(event);
 	}
 
-	/* @Override
+	@Override
 	public Event getEventById(int eventId) {
 
 		return eventRepository.findById(eventId).orElse(null);
 	}
-	*/
 
 	@Override
 	public List<Event> getEventsByGroup(int groupId) {

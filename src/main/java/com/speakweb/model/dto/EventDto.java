@@ -19,5 +19,6 @@ public class EventDto {
 	private String location;
 	private String externalLink;
 	private int groupId;
+	private String imageUrl;
 	
 }
