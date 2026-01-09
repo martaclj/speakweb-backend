@@ -155,8 +155,15 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 		
 		return false; // es usuario normal en este grupo
 	}
-	
-	
 
-	
+	@Override
+	public GroupMember getMemberByEmailAndGroup(String email, int groupId) {
+		UserEntity user = userRepository.findByEmail(email);
+		BGroup group = groupRepository.findById(groupId).orElse(null);
+		
+		if (user == null || group == null) {
+			return null;
+		}
+		return groupMemberRepository.findByUserAndGroup(user, group);
+	}	
 }

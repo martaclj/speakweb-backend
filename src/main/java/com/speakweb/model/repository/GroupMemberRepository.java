@@ -16,4 +16,7 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember, Intege
 	boolean existsByUserAndGroupAndIsExpert(UserEntity user, BGroup group, boolean isExpert); // comprobamos condición experto
 	List<GroupMember> findByGroup(BGroup group);
 	List<GroupMember> findByUser(UserEntity user); // grupos de un usuario / mis grupos
+	
+	// para recuperar info del usu, si es experto, etc.
+	GroupMember findByUserAndGroup(UserEntity user, BGroup group);
 }

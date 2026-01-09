@@ -27,6 +27,19 @@ public class GroupMemberController {
 	@Autowired
     private GroupMemberService groupMemberService;
 	
+	// Endpoint para ver el status del miembro // Angular necesita saber qué rol tiene el usuario en este grupo
+	@GetMapping("/status/{groupId}")
+	public ResponseEntity<GroupMember> getMyGroupStatus(@PathVariable int groupId, Authentication authentication) {
+		String email = authentication.getName();
+		GroupMember member = groupMemberService.getMemberByEmailAndGroup(email, groupId);
+		
+		if (member != null) {
+			return ResponseEntity.ok(member); // es miembro y con qué status
+		} else {
+			return ResponseEntity.noContent().build(); // no es miembro
+		}
+	}
+	
 	@GetMapping("/my-groups")
 	public ResponseEntity<List<GroupMember>> getMyGroups(Authentication authentication) {
 		String email = authentication.getName();

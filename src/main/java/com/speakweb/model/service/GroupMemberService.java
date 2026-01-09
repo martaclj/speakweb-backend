@@ -19,4 +19,7 @@ public interface GroupMemberService {
 	
 	// método para decidir si debería ser experto en el grupo
 	boolean calculateExpertStatus(UserEntity user, BGroup group);
+	
+	// obtener usu a partir del email y busca info sobre él en el grupo
+	GroupMember getMemberByEmailAndGroup(String email, int groupId);
 }
