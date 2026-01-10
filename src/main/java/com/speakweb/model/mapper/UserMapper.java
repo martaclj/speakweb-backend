@@ -29,6 +29,8 @@ public class UserMapper {
 				user.getSurname(),
 				user.getEmail(),
 				user.getRole().name(),
+				user.getBio(),
+				user.getAvatarUrl(),
 				null // para el token que va vacío en la entidad
 		);
 	}
