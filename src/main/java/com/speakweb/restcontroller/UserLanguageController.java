@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +26,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api/user-languages")
-@Tag(name = "02. Mis Idiomas", description = "Añadir idiomas que el usuario habla o quiere aprender")
+@Tag(name = "02. Mis Idiomas", description = "Añadir y eliminar idiomas que el usuario habla o quiere aprender")
 public class UserLanguageController {
 
 	@Autowired
@@ -55,6 +57,15 @@ public class UserLanguageController {
 		String email = authentication.getName();
 		UserEntity user = userService.getUserByEmail(email);
 		
+		// Evitar duplicados del mismo idioma con distintos niveles -lista idiomas q ya tiene el user
+		List<UserLanguage> myCurrentLanguages = userLanguageService.getUserLanguage(user.getId());
+		
+		for (UserLanguage ul : myCurrentLanguages) {
+			if (ul.getLanguage().getId() == dto.getLanguageId()) {
+				return ResponseEntity.badRequest().body("Ya tienes ese idioma añadido!");
+			}
+		}
+		
 		Language language = languageService.getLanguageById(dto.getLanguageId());
 		
 		if (language== null) {
@@ -72,5 +83,17 @@ public class UserLanguageController {
 		UserLanguage savedlang = userLanguageService.save(newRegister);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(savedlang);
+	}
+	
+	// Borrado de cualquier idioma q haya guardado antes
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deleteUserLanguage(@PathVariable int id, Authentication authentication) {
+		String email = authentication.getName();
+		UserEntity user = userService.getUserByEmail(email);
+		
+		userLanguageService.deleteUserLanguage(id, user.getId());
+		
+		return ResponseEntity.ok("Idioma eliminado");
+		
 	}
 }

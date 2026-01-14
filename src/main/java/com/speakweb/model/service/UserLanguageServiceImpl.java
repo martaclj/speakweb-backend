@@ -29,4 +29,15 @@ public class UserLanguageServiceImpl implements UserLanguageService {
 		return userLanguageRepository.save(userLanguage);
 	}
 
+	@Override
+	public void deleteUserLanguage(int userLanguageId, int userId) {
+		UserLanguage userLang = userLanguageRepository.findById(userLanguageId).orElse(null);
+		
+		if (userLang != null && userLang.getUser().getId() == userId) {
+			userLanguageRepository.delete(userLang);
+		}
+	// comprueba que el idioma no sea null (que ya no exista) y que sea el idioma del usuario
+		// evito q un usuario borre el idioma de otro 
+	}
+
 }

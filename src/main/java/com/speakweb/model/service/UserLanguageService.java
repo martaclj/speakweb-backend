@@ -8,4 +8,5 @@ public interface UserLanguageService {
 
 	List<UserLanguage> getUserLanguage(int userId);
 	UserLanguage save(UserLanguage userLanguage);
+	void deleteUserLanguage(int userLanguageId, int userId);
 }
