@@ -85,6 +85,17 @@ public class UserController {
 		return ResponseEntity.ok(dtos);
 	}
 	
+	// visitar el perfil de otro usuario
+	@GetMapping("/{id}")
+	public ResponseEntity<UserDto> getUserById(@PathVariable int id) {
+		UserEntity user = userService.getUserById(id);
+		if (user == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(UserMapper.toDto(user));
+	}
+	
 	// Eliminar usuarios
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteUser(@PathVariable int id) {

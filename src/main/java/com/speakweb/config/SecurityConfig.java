@@ -49,16 +49,16 @@ public class SecurityConfig {
             	.requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
             	// Rutas para swagger (públicas)
             	.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-            	
-            	// Rutas para student
-            	.requestMatchers("/api/groups/**").authenticated()
 
             	// Rutas públicas de Auth
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/auth/**").permitAll()
             	.requestMatchers("/api/auth/**").permitAll()
+            	
             	// Rutas privadas de Solo ADMIN
-            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAnyAuthority("ROLE_ADMIN")
-                // Todas las demás rutas autenticadas
+            	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/users").hasAuthority("ROLE_ADMIN") // VER LISTA USUARIOS
+            	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/users/**").hasAuthority("ROLE_ADMIN") // borrar un usuario 
+            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAnyAuthority("ROLE_ADMIN") // Gestión de idiomas
+            	// Todas las demás rutas autenticadas
             	.anyRequest().authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
