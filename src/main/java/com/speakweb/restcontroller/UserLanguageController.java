@@ -49,6 +49,12 @@ public class UserLanguageController {
 		
 		return ResponseEntity.ok(userLanguageService.getUserLanguage(user.getId()));
 	}
+	
+	// GET: Obtengo idiomas de otro usuario por su id -- ver perfiles de otros
+	@GetMapping("/user/{userId}")
+	public ResponseEntity<List<UserLanguage>> getUserLanguages(@PathVariable int userId) {
+		return ResponseEntity.ok(userLanguageService.getUserLanguage(userId));
+	}
 
 	// POST: Añado un idioma nuevo!
 	@PostMapping
