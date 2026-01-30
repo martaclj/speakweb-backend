@@ -75,7 +75,7 @@ public class EventParticipantServiceImpl implements EventParticipantService {
 
 	@Override
 	public void removeUserFromEvent(int userId, int eventId) {
-		UserEntity user = userService.getUserById(eventId);
+		UserEntity user = userService.getUserById(userId);
 		Event event = eventRepository.findById(eventId).orElse(null);
 		
 		if (user == null || event == null) {

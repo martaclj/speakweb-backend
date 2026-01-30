@@ -75,7 +75,7 @@ public class EventParticipantController {
 	}
 
 	// Endpoint para desapuntarse de un evento
-	@DeleteMapping("/level/{eventId}")
+	@DeleteMapping("/leave/{eventId}")
 	public ResponseEntity<?> leaveEvent(@PathVariable int eventId, Authentication authentication) {
 		try {
 			String email = authentication.getName();
