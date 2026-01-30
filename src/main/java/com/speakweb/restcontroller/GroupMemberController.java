@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -67,6 +68,18 @@ public class GroupMemberController {
 			
 			return ResponseEntity.status(HttpStatus.CREATED).body(member);
 		
+		} catch (RuntimeException e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
+	}
+	
+	@DeleteMapping("/leave/{groupId}")
+	public ResponseEntity<?> leaveGroup(@PathVariable int groupId, Authentication authentication) {
+		try {
+			String email = authentication.getName();
+			groupMemberService.leaveGroup(email, groupId);
+			
+			return ResponseEntity.ok("Has abandonado el grupo correctamente");
 		} catch (RuntimeException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
