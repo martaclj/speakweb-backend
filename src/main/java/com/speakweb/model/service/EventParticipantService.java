@@ -10,5 +10,6 @@ public interface EventParticipantService {
 	EventParticipant addUserToEvent(int userId, int eventId); // añadir usu a evento
 	List<EventParticipant> getParticipantsByEvent(int eventId); // lista participantes evento
 	List<EventParticipant> getEventsByUser(int userId); // eventos a los que está apuntado un usuario
+	void removeUserFromEvent(int userId, int eventId);
 
 }

@@ -15,5 +15,5 @@ public interface EventParticipantRepository extends JpaRepository<EventParticipa
 	boolean existsByEventAndUser(Event event, UserEntity user); // está apuntado ya al evento?
 	List<EventParticipant> findByEvent(Event event); // lista los participantes de 1 evento
 	List<EventParticipant> findByUser(UserEntity user); // a cuántos eventos está apuntado el usuario? eventos en los que está apuntado un usuario
-	
+	EventParticipant findByEventAndUser(Event event, UserEntity user);
 }

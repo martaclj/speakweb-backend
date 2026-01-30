@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,5 +74,20 @@ public class EventParticipantController {
 		return ResponseEntity.ok(list);
 	}
 
+	// Endpoint para desapuntarse de un evento
+	@DeleteMapping("/level/{eventId}")
+	public ResponseEntity<?> leaveEvent(@PathVariable int eventId, Authentication authentication) {
+		try {
+			String email = authentication.getName();
+			UserEntity user = userService.getUserByEmail(email);
+			
+			participantService.removeUserFromEvent(user.getId(), eventId);
+			
+			return ResponseEntity.ok("Te has desapuntado del evento");
+		} catch (RuntimeException e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
+	}
+	
 	
 }

@@ -22,4 +22,6 @@ public interface GroupMemberService {
 	
 	// obtener usu a partir del email y busca info sobre él en el grupo
 	GroupMember getMemberByEmailAndGroup(String email, int groupId);
+	// abandonar grupo
+	void leaveGroup(String userEmail, int groupId);
 }

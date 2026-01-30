@@ -73,4 +73,22 @@ public class EventParticipantServiceImpl implements EventParticipantService {
 		return eventParticipantRepository.findByUser(user); // list de usuarios
 	}
 
+	@Override
+	public void removeUserFromEvent(int userId, int eventId) {
+		UserEntity user = userService.getUserById(eventId);
+		Event event = eventRepository.findById(eventId).orElse(null);
+		
+		if (user == null || event == null) {
+			throw new RuntimeException("Usuario o evento no encontrado");
+		}
+		
+		EventParticipant participation = eventParticipantRepository.findByEventAndUser(event, user);
+
+		if (participation != null) {
+			eventParticipantRepository.delete(participation);
+		} else {
+			throw new RuntimeException("El usuario no estaba apuntado a este evento");
+		}
+	}
+
 }

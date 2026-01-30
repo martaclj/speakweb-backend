@@ -165,5 +165,23 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 			return null;
 		}
 		return groupMemberRepository.findByUserAndGroup(user, group);
+	}
+
+	@Override
+	public void leaveGroup(String userEmail, int groupId) {
+		UserEntity user = userRepository.findByEmail(userEmail);
+		BGroup group = groupRepository.findById(groupId).orElse(null);
+		
+		if (user == null || group == null) {
+			throw new RuntimeException("Datos no válidos");
+		}
+		
+		GroupMember membership = groupMemberRepository.findByUserAndGroup(user, group);
+		
+		if (membership != null) {
+			groupMemberRepository.delete(membership);
+		} else {
+			throw new RuntimeException("No eres miembro de este grupo");
+		}
 	}	
 }
