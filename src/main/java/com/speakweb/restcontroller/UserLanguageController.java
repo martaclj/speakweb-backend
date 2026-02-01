@@ -18,6 +18,7 @@ import com.speakweb.model.dto.UserLanguageDto;
 import com.speakweb.model.entity.Language;
 import com.speakweb.model.entity.UserEntity;
 import com.speakweb.model.entity.UserLanguage;
+import com.speakweb.model.service.GroupMemberService;
 import com.speakweb.model.service.LanguageService;
 import com.speakweb.model.service.UserLanguageService;
 import com.speakweb.model.service.UserService;
@@ -37,6 +38,9 @@ public class UserLanguageController {
 	
 	@Autowired
 	private LanguageService languageService;
+	
+	@Autowired
+	private GroupMemberService groupMemberService;
 	
 	// GET: Obtengo mi idiomas
 	@GetMapping
@@ -87,6 +91,9 @@ public class UserLanguageController {
 		
 		// Guardo idioma
 		UserLanguage savedlang = userLanguageService.save(newRegister);
+		
+		// ajustes para actualizar la cond de experto de los grupos - tras new idioma
+		groupMemberService.refreshUserExpertStatus(email);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(savedlang);
 	}

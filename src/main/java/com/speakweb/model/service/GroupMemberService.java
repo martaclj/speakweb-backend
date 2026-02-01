@@ -24,4 +24,7 @@ public interface GroupMemberService {
 	GroupMember getMemberByEmailAndGroup(String email, int groupId);
 	// abandonar grupo
 	void leaveGroup(String userEmail, int groupId);
+	// para q se actualice la condición de experto cuando el usuario 
+	// añada su lengua nativa en su perfil
+	void refreshUserExpertStatus(String userEmail);
 }

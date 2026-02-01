@@ -183,5 +183,27 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 		} else {
 			throw new RuntimeException("No eres miembro de este grupo");
 		}
+	}
+
+	@Override
+	public void refreshUserExpertStatus(String userEmail) {
+		UserEntity user = userRepository.findByEmail(userEmail);
+		
+		List<GroupMember> myMemberships = groupMemberRepository.findByUser(user);
+		
+		// recálculo de condición de experto tras la modificación
+		for (GroupMember member : myMemberships) {
+			boolean shouldBeExpert = this.calculateExpertStatus(user, member.getGroup());
+			
+			if (member.isExpert() != shouldBeExpert) {
+				member.setExpert(shouldBeExpert);
+				groupMemberRepository.save(member);
+				System.out.println("Actualizado: Usuario" + user.getName() 
+				+ "ahora es EXPERTO (" + shouldBeExpert + ") en grupo "
+				+ member.getGroup().getName());
+			}
+			
+		}
+		
 	}	
 }
