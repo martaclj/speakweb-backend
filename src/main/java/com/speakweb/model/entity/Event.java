@@ -3,8 +3,12 @@ package com.speakweb.model.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.speakweb.model.entity.enums.EventType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,6 +32,13 @@ public class Event implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "group_id")
 	private BGroup group;
+	
+	@ManyToOne
+	@JoinColumn(name = "creator_id")
+	private UserEntity creator;
+	
+	@Enumerated(EnumType.STRING)
+	private EventType type; // ONLINE o PRESENTIAL
 	
 	private String title;
 	private String description;

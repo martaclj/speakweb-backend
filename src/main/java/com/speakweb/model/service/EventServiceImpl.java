@@ -9,6 +9,7 @@ import com.speakweb.model.dto.EventDto;
 import com.speakweb.model.entity.BGroup;
 import com.speakweb.model.entity.Event;
 import com.speakweb.model.entity.UserEntity;
+import com.speakweb.model.entity.enums.EventType;
 import com.speakweb.model.repository.EventRepository;
 import com.speakweb.model.repository.GroupRepository;
 import com.speakweb.model.repository.UserRepository;
@@ -53,6 +54,31 @@ public class EventServiceImpl implements EventService {
 		event.setExternalLink(dto.getExternalLink());
 		event.setGroup(group);
 		event.setImageUrl(dto.getImageUrl());
+		event.setCreator(user);
+		
+		// lógica ONLINE vs. PRESENTIAL
+		try {
+			if (dto.getType() != null) {
+				EventType type = EventType.valueOf(dto.getType().toUpperCase());
+				event.setType(type);
+				
+				if (type == EventType.ONLINE) {
+					event.setLocation(null);
+					event.setExternalLink(dto.getExternalLink());
+				} else {
+					event.setLocation(dto.getLocation());
+					event.setExternalLink(null);
+				}
+			
+			} else {
+				event.setType(EventType.PRESENTIAL); // si viene nullo por defecto PRESENTIAL
+				event.setLocation(dto.getLocation());
+			}
+		} catch (Exception e) {
+			// si error --> def presential
+			event.setType(EventType.PRESENTIAL);
+			event.setLocation(dto.getLocation());
+		}
 		
 		return eventRepository.save(event);
 	}

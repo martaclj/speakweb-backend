@@ -31,9 +31,9 @@ INSERT INTO group_members (id, user_id, group_id, is_expert) VALUES
 (2, 4, 1, 1), -- Tom
 (3, 5, 1, 0); -- Laura
 -- eventos
-INSERT INTO events (event_id, group_id, title, description, start_time, external_link, location, image_url) VALUES
-(1, 1, 'Quedada de Inglés', 'Vamos a practicar speaking', '2025-12-20 16:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
-(2, 1, 'Tapas en español', 'Practicamos español tomando tapas', '2025-12-27 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=800&q=80');
+INSERT INTO events (event_id, group_id, creator_id, type, title, description, start_time, external_link, location, image_url) VALUES
+(1, 1, 4, 'PRESENTIAL', 'Quedada de Inglés', 'Vamos a practicar speaking', '2025-12-20 16:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
+(2, 1, 5, 'PRESENTIAL', 'Tapas en español', 'Practicamos español tomando tapas', '2025-12-27 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=800&q=80');
 -- participantes en eventos
 INSERT INTO event_participants (id, event_id, user_id) VALUES
 (1, 1, 4); -- Tom en evento 1
