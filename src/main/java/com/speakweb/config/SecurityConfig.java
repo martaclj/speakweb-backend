@@ -50,9 +50,12 @@ public class SecurityConfig {
             	// Rutas para swagger (públicas)
             	.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
 
-            	// Rutas públicas de Auth
+            	// Rutas públicas de Auth y archivos
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/auth/**").permitAll()
             	.requestMatchers("/api/auth/**").permitAll()
+            	.requestMatchers("/uploads/**").permitAll()
+            	.requestMatchers("/api/images/**").permitAll()
+            	.requestMatchers("/error").permitAll()
             	
             	// Rutas privadas de Solo ADMIN
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/users").hasAuthority("ROLE_ADMIN") // VER LISTA USUARIOS
@@ -71,7 +74,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        configuration.setAllowedHeaders(List.of("*"));
+       // configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setExposedHeaders(List.of("Authorization"));
         configuration.setAllowCredentials(true);
 

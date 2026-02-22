@@ -18,7 +18,7 @@ import com.speakweb.model.service.LocalImageStorageService;
 // https://github.com/philipplackner/SpringBootFileUploadDownload
 
 @RestController
-@RequestMapping("/images")
+@RequestMapping("/api/images")
 @CrossOrigin(origins = "*")
 public class ImageController {
 	private final LocalImageStorageService storageService;
