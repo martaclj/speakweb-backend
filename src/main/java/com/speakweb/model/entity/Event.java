@@ -3,6 +3,7 @@ package com.speakweb.model.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.speakweb.model.entity.enums.EventType;
 
 import jakarta.persistence.Column;
@@ -43,6 +44,7 @@ public class Event implements Serializable {
 	private String title;
 	private String description;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	@Column(name = "start_time")
 	private LocalDateTime startTime;
 	
