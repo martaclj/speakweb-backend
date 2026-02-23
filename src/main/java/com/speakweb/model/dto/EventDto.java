@@ -17,7 +17,7 @@ public class EventDto {
 
 	private String title;
 	private String description;
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime startTime;
 	private String location;
 	private String externalLink;

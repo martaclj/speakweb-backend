@@ -44,7 +44,7 @@ public class Event implements Serializable {
 	private String title;
 	private String description;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	@Column(name = "start_time")
 	private LocalDateTime startTime;
 	
