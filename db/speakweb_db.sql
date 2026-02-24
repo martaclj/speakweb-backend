@@ -103,3 +103,16 @@ CREATE TABLE event_participants (
 	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE -- se borra como participante si es borrado como user
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
+-- Tabla de valoraciones de usuarios
+CREATE TABLE IF NOT EXISTS user_ratings (
+	rating_id INT AUTO_INCREMENT PRIMARY KEY,
+    reviewer_id INT NOT NULL,
+    reviewer_user_id INT NOT NULL,
+    event_id INT NOT NULL,
+    score INT NOT NULL CHECK (score BETWEEN 1 AND 5),
+    comments VARCHAR(500),
+    created_at DATETIME DEFAULT current_timestamp,
+    FOREIGN KEY (reviewer_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (reviewer_user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (event_id) REFERENCES events(event_id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

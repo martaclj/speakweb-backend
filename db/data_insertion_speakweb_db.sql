@@ -37,3 +37,7 @@ INSERT INTO events (event_id, group_id, creator_id, type, title, description, st
 -- participantes en eventos
 INSERT INTO event_participants (id, event_id, user_id) VALUES
 (1, 1, 4); -- Tom en evento 1
+-- valoraciones de eventos
+INSERT INTO user_ratings (reviewer_id, reviewed_user_id, event_id, score, comments) VALUES
+(3, 4, 1, 5, '¡Tom es un anfitrión genial, la charla fue muy fluida!'),
+(5, 4, 1, 4, 'Buen evento, aunque el sitio era un poco ruidoso.');
