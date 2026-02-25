@@ -16,4 +16,5 @@ public interface UserService {
 	List<UserEntity> getAllUsers();
 	void deleteUser(int id);
 	
+	
 }

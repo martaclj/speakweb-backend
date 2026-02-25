@@ -41,3 +41,7 @@ INSERT INTO event_participants (id, event_id, user_id) VALUES
 INSERT INTO user_ratings (reviewer_id, reviewed_user_id, event_id, score, comments) VALUES
 (3, 4, 1, 5, '¡Tom es un anfitrión genial, la charla fue muy fluida!'),
 (5, 4, 1, 4, 'Buen evento, aunque el sitio era un poco ruidoso.');
+-- denuncias o reportes
+INSERT INTO user_reports (reporter_id, reported_user_id, reason) VALUES
+(4, 3, 'El usuario no se presentó a la quedada'),
+(5, 4, 'Me ha enviado mensajes con spam');

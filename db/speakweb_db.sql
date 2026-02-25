@@ -107,12 +107,23 @@ CREATE TABLE event_participants (
 CREATE TABLE IF NOT EXISTS user_ratings (
 	rating_id INT AUTO_INCREMENT PRIMARY KEY,
     reviewer_id INT NOT NULL,
-    reviewer_user_id INT NOT NULL,
+    reviewed_user_id INT NOT NULL,
     event_id INT NOT NULL,
     score INT NOT NULL CHECK (score BETWEEN 1 AND 5),
     comments VARCHAR(500),
     created_at DATETIME DEFAULT current_timestamp,
     FOREIGN KEY (reviewer_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (reviewer_user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (reviewed_user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (event_id) REFERENCES events(event_id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabla de denuncias
+CREATE TABLE IF NOT EXISTS user_reports (
+	report_id INT AUTO_INCREMENT PRIMARY KEY,
+    reporter_id INT NOT NULL,
+    reported_user_id INT NOT NULL,
+    reason VARCHAR(1000) NOT NULL,
+    created_at DATETIME DEFAULT current_timestamp,
+    FOREIGN KEY (reporter_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (reported_user_id) REFERENCES users(user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -14,35 +14,26 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "user_ratings")
+@Table(name = "user_reports")
 @Data
-public class UserRating implements Serializable {
+public class UserReport implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "rating_id")
+	@Column(name = "report_id")
 	private int id;
 	
-	// usuario que escribe la valoración
 	@ManyToOne
-	@JoinColumn(name = "reviewer_id")
-	private UserEntity reviewer;
+	@JoinColumn(name = "reporter_id")
+	private UserEntity reporter;
 	
-	// usuario valorado
 	@ManyToOne
-	@JoinColumn(name = "reviewed_user_id")
-	private UserEntity reviewedUser;
+	@JoinColumn(name = "reported_user_id")
+	private UserEntity reportedUser;
 	
-	// evento relacionado
-	@ManyToOne
-	@JoinColumn(name = "event_id")
-	private Event event;
-	
-	private int score;
-	
-	private String comments;
+	private String reason;
 	
 	@Column(name = "created_at", insertable = false, updatable = false)
 	private LocalDateTime createdAt;

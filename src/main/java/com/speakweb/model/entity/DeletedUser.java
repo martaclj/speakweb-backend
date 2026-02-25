@@ -36,7 +36,7 @@ public class DeletedUser implements Serializable {
 	private String avatarUrl;
 	private String bio;
 	
-	@Column(name = "deleted_at")
+	@Column(name = "deleted_at", insertable = false, updatable = false)
 	private LocalDateTime deletedAt;
 	
 }

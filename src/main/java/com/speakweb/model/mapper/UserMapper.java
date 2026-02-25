@@ -36,3 +36,6 @@ public class UserMapper {
 	}
 
 }
+/* solo un Mapper de UserMapper para filtrar Hash Password, solo por seguridad. 
+ * El resto de Dtos se envían directamente para agilizar el proyecto.
+ */
