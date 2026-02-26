@@ -100,4 +100,16 @@ public class UserRatingServiceImpl implements UserRatingService{
 		// devuelvo un dto con estos datos concretos
 		return new ReputationDto(formattedScore, reportsCount);
 	}
+
+	@Override
+	public List<UserRating> getUserRatingsDetailed(int userId) {
+		UserEntity user = userRepository.findById(userId).orElse(null);
+		
+		if (user == null) {
+			return List.of(); // no usuario, lista vacía
+		}
+		
+		// devuelvo todas las valoraciones
+		return userRatingRepository.findByReviewedUser(user);
+	}
 }

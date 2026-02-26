@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// dto para mostrar el resumen de la reputación
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

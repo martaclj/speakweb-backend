@@ -77,7 +77,7 @@ public class AuthController {
 			return ResponseEntity.ok(userDto);
 
 		} catch (AuthenticationException e) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); // Build the response entity with no body.
 	}
 
 	}
