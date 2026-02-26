@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.speakweb.model.dto.ReportDto;
 import com.speakweb.model.entity.UserEntity;
 import com.speakweb.model.entity.UserReport;
 import com.speakweb.model.repository.UserReportRepository;
@@ -28,6 +29,27 @@ public class UserReportServiceImpl implements UserReportService {
 		
 		// saca denuncias del usuario
 		return userReportRepository.findByReportedUser(user);
+	}
+
+	@Override
+	public UserReport createReport(String reporterEmail, ReportDto dto) {
+		UserEntity reporter = userRepository.findByEmail(reporterEmail);
+		UserEntity reported = userRepository.findById(dto.getReportedUserId()).orElse(null);
+		
+		if (reporter == null || reported == null) {
+			throw new RuntimeException("Usuarios no válidos");
+		}
+		
+		if (reporter.getId() == reported.getId() ) {
+			throw new RuntimeException("No puedes denunciarte a ti mismo");
+		}
+		
+		UserReport report = new UserReport();
+		report.setReporter(reporter);
+		report.setReportedUser(reported);
+		report.setReason(dto.getReason());
+		
+		return userReportRepository.save(report);
 	}
 
 }
