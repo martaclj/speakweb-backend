@@ -61,6 +61,7 @@ public class SecurityConfig {
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/users").hasAuthority("ROLE_ADMIN") // VER LISTA USUARIOS
             	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/users/**").hasAuthority("ROLE_ADMIN") // borrar un usuario 
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAnyAuthority("ROLE_ADMIN") // Gestión de idiomas
+            	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/deleted-users").hasAuthority("ROLE_ADMIN") // bajas
             	// Todas las demás rutas autenticadas
             	.anyRequest().authenticated()
             )
