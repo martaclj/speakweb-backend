@@ -60,8 +60,12 @@ public class SecurityConfig {
             	// Rutas privadas de Solo ADMIN
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/users").hasAuthority("ROLE_ADMIN") // VER LISTA USUARIOS
             	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/users/**").hasAuthority("ROLE_ADMIN") // borrar un usuario 
-            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAnyAuthority("ROLE_ADMIN") // Gestión de idiomas
+            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAuthority("ROLE_ADMIN") // Gestión de idiomas
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/deleted-users").hasAuthority("ROLE_ADMIN") // bajas
+            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/groups").hasAuthority("ROLE_ADMIN") // crear grupo
+            	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/groups/**").hasAuthority("ROLE_ADMIN") // crear grupo
+                
+            	
             	// Todas las demás rutas autenticadas
             	.anyRequest().authenticated()
             )
