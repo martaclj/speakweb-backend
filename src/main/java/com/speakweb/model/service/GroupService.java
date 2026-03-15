@@ -11,5 +11,6 @@ public interface GroupService {
 	
 	List<BGroup> getAllGroups(); // ver todos 
 	BGroup createGroup(GroupDto dto); // crear un grupo bilingüe nuevo
+	void deleteGroup(int id); // eliminar grupo (Admin)
 	
 }
