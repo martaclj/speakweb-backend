@@ -38,8 +38,9 @@ public class EventServiceImpl implements EventService {
 		if (user == null || group == null) {
 			throw new RuntimeException("Datos inválidos");
 		}
-		
-		boolean hasPrivilege = groupMemberService.canCreateEvent(user.getId(), group.getId());
+	
+		boolean isAdmin = user.getRole().name().equals("ADMIN");
+		boolean hasPrivilege = isAdmin || groupMemberService.canCreateEvent(user.getId(), group.getId());
 		
 		if (!hasPrivilege) {
 			throw new RuntimeException
@@ -96,6 +97,12 @@ public class EventServiceImpl implements EventService {
 		
 		return eventRepository.findByGroup(group);
 	}
+	
+	@Override
+	public List<Event> getAllEvents() {
+		// TODO Auto-generated method stub
+		return eventRepository.findAll();
+	}
 
 	@Override
 	public void deleteEvent(int eventId) {
@@ -107,5 +114,6 @@ public class EventServiceImpl implements EventService {
 		}
 		
 	}
+
 
 }

@@ -10,6 +10,7 @@ public interface EventService {
 	Event createEvent(String userEmail, EventDto dto);
 	// Event getEventById(int eventId);
 	List<Event> getEventsByGroup(int groupId); // eventos de un grupo determinado
+	List<Event> getAllEvents(); // Admin- ve todo los events
 	void deleteEvent(int eventId);
 	Event getEventById(int eventId);
 }

@@ -5,7 +5,7 @@ INSERT INTO users (user_id, name, surname, email, password, role, avatar_url, bi
 (2, 'Mario', 'Gonzalez', 'admin2@speakweb.com', '$2a$10$OKrYBRw2HWa2MbhImX1b/.2G/LjwLfbeRTXr8LRFLKMcv7QiCH65e', 'ADMIN', NULL, 'Administrador'),
 (3, 'Juan', 'García', 'juan@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://i.pravatar.cc/150?u=juan', '¡Hola! Quiero aprender inglés para viajar.'),
 (4, 'Tom', 'Williams', 'tom@speakweb.com', '$2a$10$Z5bmlL3lqMRcAsyuVOu/DOICKHckKTxTHi7UNVbfvQdjyTFvLkWHW', 'USER', 'https://i.pravatar.cc/150?u=tom', 'Native English speaker living in Madrid.'),
-(5, 'Laura', 'Fernández', 'laura@speakweb.com', '$2a$10$t5nlRBMqfOf8wiAe7UuBUeFlhmPRsurutgjkstkLowqh73.UZ4xa6', 'USER', 'https://i.pravatar.cc/150?u=laura', 'Me encanta enseñar español y conocer nuevas culturas.'),
+(5, 'Laura', 'Fernández', 'laura@speakweb.com', '$2a$10$t5nlRBMqfOf8wiAe7UuBUeFlhmPRsurutgjkstkLowqh73.UZ4xa6', 'USER', 'https://i.pravatar.cc/150?u=woman', 'Me encanta enseñar español y conocer nuevas culturas.'),
 (6, 'Anna', 'Müller', 'anna@speakweb.com', '$2a$10$XfgFeuhDbDkYbxOJ8cR6cOs5vbfnFdofWxTYFx58VF/nlgqevaGMm', 'USER', 'https://i.pravatar.cc/150?u=anna', 'Hallo! Ich lerne Spanisch. Ich helfe mit Deutsch!');
 
 -- idiomas

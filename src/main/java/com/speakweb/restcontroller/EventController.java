@@ -28,6 +28,12 @@ public class EventController {
 	@Autowired
     private EventService eventService;
 	
+	// Lista tdoos los eventos para el admin // /api/events
+	@GetMapping 
+	public ResponseEntity<List<Event>> getAllEvents() {
+		return ResponseEntity.ok(eventService.getAllEvents());
+	}
+	
 	// Obtener evento por id
 	@GetMapping("/{id}")
 	public ResponseEntity<Event> getEventById(@PathVariable int id) {

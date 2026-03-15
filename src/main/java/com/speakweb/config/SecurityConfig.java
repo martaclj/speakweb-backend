@@ -63,7 +63,9 @@ public class SecurityConfig {
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAuthority("ROLE_ADMIN") // Gestión de idiomas
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/deleted-users").hasAuthority("ROLE_ADMIN") // bajas
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/groups").hasAuthority("ROLE_ADMIN") // crear grupo
-            	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/groups/**").hasAuthority("ROLE_ADMIN") // crear grupo
+            	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/groups/**").hasAuthority("ROLE_ADMIN") // x
+            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/events").hasAuthority("ROLE_ADMIN") // crear evento
+            	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/events/**").hasAuthority("ROLE_ADMIN") // x
                 
             	
             	// Todas las demás rutas autenticadas
