@@ -42,18 +42,27 @@ INSERT INTO group_members (id, user_id, group_id, is_expert) VALUES
 
 -- eventos
 INSERT INTO events (event_id, group_id, creator_id, type, title, description, start_time, external_link, location, image_url) VALUES
-(1, 1, 4, 'PRESENTIAL', 'Quedada de Inglés', 'Vamos a practicar speaking', '2026-05-10 16:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
-(2, 1, 5, 'PRESENTIAL', 'Tapas en español', 'Practicamos español tomando tapas', '2026-05-24 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=800&q=80'),
-(3, 1, 5, 'ONLINE', 'Charla online Inglés-Español', 'Sesión de conversación por videollamada', '2026-06-07 18:00:00', 'https://meet.google.com/speakweb-inglés', NULL, 'https://cdn.pixabay.com/photo/2021/02/05/22/11/laptop-5986208_1280.jpg');
+(1, 1, 4, 'PRESENTIAL', 'Quedada de Inglés', 'Vamos a practicar speaking', '2026-02-10 16:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
+(2, 1, 4, 'PRESENTIAL', 'Nueva quedada Inglés', 'Segunda quedada del grupo', '2026-06-15 17:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
+(3, 1, 5, 'PRESENTIAL', 'Tapas en español', 'Practicamos español tomando tapas', '2026-05-24 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=800&q=80'),
+(4, 1, 5, 'ONLINE', 'Charla online Inglés-Español', 'Sesión de conversación por videollamada', '2026-06-07 18:00:00', 'https://meet.google.com/speakweb-inglés', NULL, 'https://cdn.pixabay.com/photo/2021/02/05/22/11/laptop-5986208_1280.jpg');
 
 -- participantes en eventos
 INSERT INTO event_participants (id, event_id, user_id) VALUES
-(1, 1, 4), -- Tom en evento 1 (quedad inglés)
+(1, 1, 4), -- Tom en evento 1 (quedada inglés)- pasada
 (2, 1, 3), -- Juan en evento 1
 (3, 1, 5), -- Laura en evento 1
 (4, 1, 6), -- Anna en evento 1
-(5, 2, 5), -- Laura en evento 2 (tapas español)
-(6, 3, 3); -- Juan en evento 3 (online)
+(5, 1, 1), -- Pepe (Admin) en evento 1
+(6, 2, 1), -- Pepe en evento 2 (quedada inglés)- futura
+(7, 2, 2), -- Mario (Admin) en evento 2
+(8, 2, 3), -- Mario en evento 2
+(9, 2, 4), -- Tom en evento 2
+(10, 2, 5), -- Laura en evento 2
+(11, 2, 6), -- Anna en evento 3
+(12, 3, 5), -- Laura en evento 2
+(13, 4, 3), -- Juan en evento 4 (online)
+(14, 4, 4); -- Tom en evento 4 (online)
 
 -- valoraciones de eventos
 INSERT INTO user_ratings (reviewer_id, reviewed_user_id, event_id, score, comments) VALUES
