@@ -37,7 +37,9 @@ INSERT INTO group_members (id, user_id, group_id, is_expert) VALUES
 (3, 4, 3, 1), -- Tom - experto, nativo inglés
 (4, 5, 1, 0), -- Laura
 (5, 6, 2, 1), -- Anna - experta alemán
-(6, 3, 1, 0); -- Juan en grupo 1
+(6, 6, 1, 0), -- Anna en grupo 1
+(7, 3, 1, 0); -- Juan en grupo 1
+
 -- eventos
 INSERT INTO events (event_id, group_id, creator_id, type, title, description, start_time, external_link, location, image_url) VALUES
 (1, 1, 4, 'PRESENTIAL', 'Quedada de Inglés', 'Vamos a practicar speaking', '2026-05-10 16:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
@@ -46,9 +48,13 @@ INSERT INTO events (event_id, group_id, creator_id, type, title, description, st
 
 -- participantes en eventos
 INSERT INTO event_participants (id, event_id, user_id) VALUES
-(1, 1, 4), -- Tom en evento 1
-(2, 2, 5), -- Laura en evento 2
-(3, 3, 3); -- Juan en evento 3 (ONLINE)
+(1, 1, 4), -- Tom en evento 1 (quedad inglés)
+(2, 1, 3), -- Juan en evento 1
+(3, 1, 5), -- Laura en evento 1
+(4, 1, 6), -- Anna en evento 1
+(5, 2, 5), -- Laura en evento 2 (tapas español)
+(6, 3, 3); -- Juan en evento 3 (online)
+
 -- valoraciones de eventos
 INSERT INTO user_ratings (reviewer_id, reviewed_user_id, event_id, score, comments) VALUES
 (3, 4, 1, 5, '¡Tom es un anfitrión genial, la charla fue muy fluida!'),
