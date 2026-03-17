@@ -11,6 +11,6 @@ public interface EventService {
 	// Event getEventById(int eventId);
 	List<Event> getEventsByGroup(int groupId); // eventos de un grupo determinado
 	List<Event> getAllEvents(); // Admin- ve todo los events
-	void deleteEvent(int eventId);
+	void deleteEvent(int eventId, String userEmail);
 	Event getEventById(int eventId);
 }

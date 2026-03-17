@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -71,19 +72,24 @@ public class EventController {
 		}
 	}
 	
-	// Borrar eventos
+	// Borrar eventos (admin: todos, experto: solo suyos)
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteEvent(@PathVariable int id) {
+	public ResponseEntity<?> deleteEvent(@PathVariable int id, Authentication authentication) {
 		try {
-			eventService.deleteEvent(id);
+			String email = authentication.getName();
+			eventService.deleteEvent(id, email);
 			
 			return ResponseEntity.ok("Evento cancelado correctamente");
+			
+		} catch (RuntimeException e) {
 		
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-					.body("No se puede eliminar el evento. Tiene participantes inscritos.");
+					.body("No se puede eliminar el evento.");
 		}
 	}
 	

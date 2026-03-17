@@ -64,10 +64,12 @@ public class SecurityConfig {
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/deleted-users").hasAuthority("ROLE_ADMIN") // bajas
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/groups").hasAuthority("ROLE_ADMIN") // crear grupo
             	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/groups/**").hasAuthority("ROLE_ADMIN") // x
-            	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/events").hasAuthority("ROLE_ADMIN") // crear evento
-            	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/events/**").hasAuthority("ROLE_ADMIN") // x
-                
-            	
+            	/* .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/events").hasAuthority("ROLE_ADMIN") // crear evento
+            	//.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/events/**").hasAuthority("ROLE_ADMIN") // x 
+            	// Eventos: POST y DELETE los valida en el servicio. El experto puede crear y borrar sus propios eventos y el admin todos.
+            	//
+            	 */
+            	                
             	// Todas las demás rutas autenticadas
             	.anyRequest().authenticated()
             )

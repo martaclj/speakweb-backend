@@ -105,13 +105,23 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public void deleteEvent(int eventId) {
+	public void deleteEvent(int eventId, String userEmail) {
+		Event event = eventRepository.findById(eventId).orElse(null);
 		
-		if (eventRepository.existsById(eventId)) {
-			eventRepository.deleteById(eventId);
-		} else {
+		if (event == null) {
 			throw new RuntimeException("El evento no existe");
 		}
+		
+		UserEntity user = userRepository.findByEmail(userEmail);
+		boolean isAdmin = user.getRole().name().equals("ADMIN");
+		boolean isCreator = event.getCreator().getId() == user.getId();
+		
+		// Solo el admin o el creador puede borrar el evento (admin todos - creador los suyos)
+		if (!isAdmin && !isCreator) {
+			throw new RuntimeException("No tienes permiso para cancelar este evento");
+		}
+		
+		eventRepository.deleteById(eventId);
 		
 	}
 
