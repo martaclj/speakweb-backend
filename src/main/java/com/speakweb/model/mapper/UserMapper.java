@@ -1,3 +1,4 @@
+// Mapper para convertir entre entidad y DTO- solo aquí para filtrar contraseña de la respuesta
 package com.speakweb.model.mapper;
 
 import com.speakweb.model.dto.UserDto;

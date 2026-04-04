@@ -24,9 +24,13 @@ public class UserLanguage  implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	/* @EmbeddedId 
-	private UserLanguageId id; // PK compuesta: user_id y language_id
-*/
+	/* diseño original con PK compuesta según el modelo E/R
+	 * 
+	 * @EmbeddedId 
+	 * private UserLanguageId id; // PK compuesta: user_id y language_id
+	 * 
+	 * cambiado a una sola pk por tabla
+	 */
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,13 +40,13 @@ public class UserLanguage  implements Serializable {
 	@JoinColumn(name = "user_id")
 	private UserEntity user;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER) // carga idioma Language siempre en misma consulta
 	@JoinColumn(name = "language_id")
 	private Language language;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "level")
-	private Level level = Level.A1;
+	private Level level = Level.A1; // nivel por defecto
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "type")

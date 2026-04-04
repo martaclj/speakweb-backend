@@ -133,7 +133,7 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 		List<UserLanguage> userLanguages = userLanguageRepository.findByUser(user);
 		
 		for (UserLanguage userLang : userLanguages) {
-			//¿el idioma del usuario es el idioma 1 o 2 del grupo?
+			// ¿el idioma del usuario es el idioma 1 o 2 del grupo?
 			boolean isGroupLang1 = userLang.getLanguage().getId() == group.getLanguage1().getId();
 			boolean isGroupLang2 = userLang.getLanguage().getId() == group.getLanguage2().getId();
 
@@ -143,10 +143,13 @@ public class GroupMemberServiceImpl implements GroupMemberService {
 				// El experto empieza a serlo desde el nivel C1 o C2 para esta app
 				boolean isHighLevel = userLang.getLevel() == Level.C1 || userLang.getLevel() == Level.C2;
 				
+				// es EXPERTO si es nativo o si tiene nivel alto
 				boolean isExpertInLanguage = isNative || isHighLevel;
 				
 				if (isExpertInLanguage) {
 					return true; // es experto
+					// con que cumpla en 1 de los 2 idiomas grupo, es experto
+					// esto puede evolucionar con el tiempo
 				}
 			}
 			

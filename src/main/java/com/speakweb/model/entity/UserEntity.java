@@ -22,11 +22,13 @@ public class UserEntity implements Serializable {
 	private String name;
 	private String surname;
 	private String email;
-	@JsonIgnore
+	
+	@JsonIgnore // por seguridad, no devolver la contraseña encriptada al front
 	private String password;
+	
 	private String avatarUrl;
 	private String bio;
 	
-	@Enumerated(EnumType.STRING)
-	private Role role = Role.USER;
+	@Enumerated(EnumType.STRING) // guarda USER o ADMIN como texto en la db
+	private Role role = Role.USER; // USER es rol por defecto al registrarse
 }

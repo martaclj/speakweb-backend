@@ -83,13 +83,15 @@ public class UserRatingServiceImpl implements UserRatingService{
 				sum += r.getScore();
 			}
 			double average = sum / ratings.size();
-/* resolver problema con los decimales:
- * para sacar un decimal:
- * average = 4.3333
- * average * 10.0 = 43.333
- * Math.round(43.333) = 43
- * 43 / 10.0 = 4.3
- */
+			
+			/* resolver problema con los decimales:
+			 * para sacar un decimal:
+			 * average = 4.3333
+			 * average * 10.0 = 43.333
+			 * Math.round(43.333) = 43
+			 * 43 / 10.0 = 4.3
+			 */
+			
 			double roundedAverage = Math.round(average * 10.0) / 10.0;
 			formattedScore = String.valueOf(roundedAverage); 
 			// porque en ReputationDto tengo private String score;

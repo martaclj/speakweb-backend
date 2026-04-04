@@ -31,6 +31,9 @@ public class GroupMember implements Serializable {
 	@JoinColumn(name = "group_id")
 	private BGroup group;
 	
+	/* true si usuario es nativo o nivel c1/c2 en algún idioma del grupo
+	 *  los expertos SÍ pueden crear eventos
+	 *  los usuarios normales NO pueden crear eventos */
 	@Column(name = "is_expert")
 	private boolean isExpert = false; // condición para crear eventos
 
