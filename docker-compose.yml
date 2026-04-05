@@ -13,7 +13,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mariadb_speakweb:3306/speakweb_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ***REMOVED***
-      SPRING_JPA_HIBERNATE_DDL_AUTO: none
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     networks:
       - speakweb-network
     volumes:
@@ -30,8 +30,6 @@ services:
       - "3307:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
-      - ./db/speakweb_db.sql:/docker-entrypoint-initdb.d/1_schema.sql
-      - ./db/data_insertion_speakweb_db.sql:/docker-entrypoint-initdb.d/2_data.sql
     networks:
       - speakweb-network
     healthcheck:
