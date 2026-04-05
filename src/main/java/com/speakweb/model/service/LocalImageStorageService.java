@@ -1,3 +1,5 @@
+// servicio para almacenar imágenes en carpeta local uploads
+// repositorio consultado: https://github.com/philipplackner/SpringBootFileUploadDownload
 package com.speakweb.model.service;
 
 import java.io.IOException;
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-// https://github.com/philipplackner/SpringBootFileUploadDownload
+
 
 @Service
 public class LocalImageStorageService {

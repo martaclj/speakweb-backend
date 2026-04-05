@@ -29,48 +29,57 @@ public class SecurityConfig {
 	@Autowired
     private JwtFilter jwtFilter;
 	
+	// beans de seguridad
+	
+	// bycript: encriptación de contraseña
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    // gestor de autenticación
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
+    // Reglas de acceso a la API (Cadena de filtros)
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) 
             .authorizeHttpRequests(auth -> auth
             	.requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
-            	// Rutas públicas para Swagger - documentación (públicas)
+            	
+            	// Rutas públicas Swagger - documentación
             	.requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
 
-            	// Rutas públicas de Auth y archivos
+            	// Rutas públicas de Auth: login y register sin token
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/auth/**").permitAll()
             	.requestMatchers("/api/auth/**").permitAll()
+            	
+            	// Rutas públicas de archivos - (imágenes de perfil y eventos)
             	.requestMatchers("/uploads/**").permitAll()
             	.requestMatchers("/api/images/**").permitAll()
             	.requestMatchers("/error").permitAll()
             	
-            	// Rutas privadas de Solo ADMIN
+            	// Rutas privadas / Solo ADMIN
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/users").hasAuthority("ROLE_ADMIN") // VER LISTA USUARIOS
             	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/users/**").hasAuthority("ROLE_ADMIN") // borrar un usuario 
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/languages").hasAuthority("ROLE_ADMIN") // Gestión de idiomas
             	.requestMatchers(org.springframework.http.HttpMethod.GET, "/api/deleted-users").hasAuthority("ROLE_ADMIN") // bajas
             	.requestMatchers(org.springframework.http.HttpMethod.POST, "/api/groups").hasAuthority("ROLE_ADMIN") // crear grupo
             	.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/groups/**").hasAuthority("ROLE_ADMIN") // x
+            	
             	/* .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/events").hasAuthority("ROLE_ADMIN") // crear evento
             	//.requestMatchers(org.springframework.http.HttpMethod.DELETE, "/api/events/**").hasAuthority("ROLE_ADMIN") // x 
             	// Eventos: POST y DELETE los valida en el servicio. El experto puede crear y borrar sus propios eventos y el admin todos.
             	//
             	 */
             	                
-            	// Todas las demás rutas autenticadas
+            	// Rutas privadas: Todas las demás rutas autenticadas
             	.anyRequest().authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

@@ -1,74 +1,262 @@
 USE speakweb_db;
 -- usuarios
 INSERT INTO users (user_id, name, surname, email, password, role, avatar_url, bio) VALUES
-(1, 'Pepe', 'Rodríguez', 'admin1@speakweb.com', '$2a$10$AsN5xvpLyNtiwZmHHEMQeOiPm0CJmlLT9f4ev9NKyKO2f0EoaqPIC', 'ADMIN', NULL, 'Administrador del sistema'),
-(2, 'Mario', 'Gonzalez', 'admin2@speakweb.com', '$2a$10$OKrYBRw2HWa2MbhImX1b/.2G/LjwLfbeRTXr8LRFLKMcv7QiCH65e', 'ADMIN', NULL, 'Administrador'),
-(3, 'Juan', 'García', 'juan@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://i.pravatar.cc/150?u=juan', '¡Hola! Quiero aprender inglés para viajar.'),
-(4, 'Tom', 'Williams', 'tom@speakweb.com', '$2a$10$Z5bmlL3lqMRcAsyuVOu/DOICKHckKTxTHi7UNVbfvQdjyTFvLkWHW', 'USER', 'https://i.pravatar.cc/150?u=tom', 'Native English speaker living in Madrid.'),
-(5, 'Laura', 'Fernández', 'laura@speakweb.com', '$2a$10$t5nlRBMqfOf8wiAe7UuBUeFlhmPRsurutgjkstkLowqh73.UZ4xa6', 'USER', 'https://i.pravatar.cc/150?u=woman', 'Me encanta enseñar español y conocer nuevas culturas.'),
-(6, 'Anna', 'Müller', 'anna@speakweb.com', '$2a$10$XfgFeuhDbDkYbxOJ8cR6cOs5vbfnFdofWxTYFx58VF/nlgqevaGMm', 'USER', 'https://i.pravatar.cc/150?u=anna', 'Hallo! Ich lerne Spanisch. Ich helfe mit Deutsch!');
+(1, 'Pepe', 'Rodríguez', 'admin1@speakweb.com', '$2a$10$AsN5xvpLyNtiwZmHHEMQeOiPm0CJmlLT9f4ev9NKyKO2f0EoaqPIC', 'ADMIN', 'https://images.unsplash.com/photo-1589254065909-b7086229d08c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Administrador del sistema.'),
+(2, 'Mario', 'Gonzalez', 'admin2@speakweb.com', '$2a$10$OKrYBRw2HWa2MbhImX1b/.2G/LjwLfbeRTXr8LRFLKMcv7QiCH65e', 'ADMIN', 'https://images.unsplash.com/photo-1589254065909-b7086229d08c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Administrador.'),
+(3, 'Juan', 'García', 'juan@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80', 'ES nativo. EN B2. Busco conversación para viajar y trabajo.'),
+(4, 'Tom', 'Williams', 'tom@speakweb.com', '$2a$10$Z5bmlL3lqMRcAsyuVOu/DOICKHckKTxTHi7UNVbfvQdjyTFvLkWHW', 'USER', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80', 'EN nativo en Madrid. Puedo ayudar con pronunciación. ES A2.'),
+(5, 'Laura', 'Fernández', 'laura@speakweb.com', '$2a$10$t5nlRBMqfOf8wiAe7UuBUeFlhmPRsurutgjkstkLowqh73.UZ4xa6', 'USER', 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80', 'ES nativa. EN B2. Prefiero intercambios tranquilos, sin grupos grandes.'),
+(6, 'Anna', 'Müller', 'anna@speakweb.com', '$2a$10$XfgFeuhDbDkYbxOJ8cR6cOs5vbfnFdofWxTYFx58VF/nlgqevaGMm', 'USER', 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80', 'DE nativa. ES B1. Si quieres, corregimos errores después del encuentro.'),
+(7, 'Sophie', 'Martin', 'sophie@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80', 'FR nativa en Madrid. ES B1. Quiero quedar por las tardes.'),
+(8, 'Marco', 'Rossi', 'marco@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80', 'IT nativo. EN C1. DE A2. Prefiero presencial.'),
+(9, 'Elena', 'Kovač', 'elena@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80', 'DE nativa. EN C2. ES A2. Quiero practicar conversación cotidiana.'),
+(10, 'Carlos', 'Ruiz', 'carlos@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80', 'ES nativo. DE A2. Haré Erasmus en Múnich y necesito practicar.'),
+(11, 'Juliette', 'Dubois', 'juliette@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80', 'FR nativa. IT B2. Me gustan charlas cortas y de varios temas.'),
+(12, 'Oliver', 'Smith', 'oliver@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80', 'EN nativo (London). ES A2. I prefer online events.'),
+(13, 'Lucía', 'Gómez', 'lucia@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&q=80', 'ES nativa. FR B1. Busco intercambio, no clase.'),
+(14, 'Lukas', 'Weber', 'lukas@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&q=80', 'DE nativo. EN C1. ES B2. Necesito corregir errores'),
+(15, 'Chiara', 'Bianchi', 'chiara@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80', 'IT nativa. EN B1. Online 45-60 min, 2-3 veces por semana.'),
+(16, 'David', 'Jones', 'david@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=80', 'EN nativo. FR B2. DE A2. Me gusta ir a eventos en cafeterías.'),
+(17, 'Carmen', 'Vargas', 'carmen.v@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80', null),
+(18, 'Antoine', 'Laurent', 'antoine@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=200&q=80', 'FR nativo. ES A2. Soy cocinero, necesito español del día a día.'),
+(19, 'Klaus', 'Meyer', 'klaus@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?auto=format&fit=crop&w=200&q=80', 'DE nativo. Online por las mañanas. Gramática paso a paso.'),
+(20, 'Sofia', 'Conti', 'sofia@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=200&q=80', 'IT nativa. ES C1. FR A2. Me apunto a quedadas de fin de semana.'),
+(21, 'Tiago', 'Silva', 'tiago@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=200&q=80', 'PT nativo. EN B2. ES B1. Horario: noches entre semana.'),
+(22, 'Inés', 'Costa', 'ines@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'PT nativa (Oporto). ES C1. Puedo ayudar con portugués conversacional.'),
+(23, 'Can', 'Yilmaz', 'can@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=200&q=80', 'TR nativo. EN C1. ES A2. Prefiero grupos pequeños.'),
+(24, 'Leyla', 'Demir', 'leyla@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1592621385612-4d7129426394?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'TR nativa. EN C1. ES A1. Erasmus en Madrid, quiero practicar mucho.');
 
 -- idiomas
-INSERT INTO languages (language_id, code, name) VALUES 
+INSERT INTO languages (language_id, code, name) VALUES
 (1, 'EN', 'English'),
 (2, 'ES', 'Español'),
 (3, 'IT', 'Italiano'),
 (4, 'DE', 'Deutsch'),
-(5, 'FR', 'Français');
+(5, 'FR', 'Français'),
+(6, 'PT', 'Português'),
+(7, 'TR', 'Türkçe');
+
 -- idiomas de los usuarios
 INSERT INTO user_languages (id, user_id, language_id, type, level) VALUES
-(1, 3, 1, 'LEARNER', 'B2'), -- Juan aprende inglés
-(2, 4, 1, 'NATIVE', 'C2'), -- TOM NATIVO INGLÉS
-(3, 4, 2, 'LEARNER', 'A2'), -- TOM aprende español
-(4, 5, 1, 'LEARNER', 'B2'), -- LAURA aprende inglés
-(5, 5, 2, 'NATIVE', 'C2'), -- LAURA es nativa de español
-(6, 6, 4, 'NATIVE', 'C2'), -- Anna es nativa alemán
-(7, 6, 2, 'LEARNER', 'B1'); -- Anna aprende español
+(1, 3, 2, 'NATIVE', 'C2'),
+(2, 3, 1, 'LEARNER', 'B2'),
+(3, 4, 1, 'NATIVE', 'C2'),
+(4, 4, 2, 'LEARNER', 'A2'),
+(5, 5, 2, 'NATIVE', 'C2'),
+(6, 5, 1, 'LEARNER', 'B2'),
+(7, 6, 4, 'NATIVE', 'C2'),
+(8, 6, 2, 'LEARNER', 'B1'),
+(9, 7, 5, 'NATIVE', 'C2'),
+(10, 7, 2, 'LEARNER', 'B1'),
+(11, 7, 1, 'LEARNER', 'C1'),
+(12, 8, 3, 'NATIVE', 'C2'),
+(13, 8, 1, 'LEARNER', 'C1'),
+(14, 8, 4, 'LEARNER', 'A2'),
+(15, 8, 2, 'LEARNER', 'B1'),
+(16, 9, 4, 'NATIVE', 'C2'),
+(17, 9, 1, 'LEARNER', 'C2'),
+(18, 9, 2, 'LEARNER', 'A2'),
+(19, 10, 2, 'NATIVE', 'C2'),
+(20, 10, 4, 'LEARNER', 'A2'),
+(21, 10, 1, 'LEARNER', 'B1'),
+(22, 11, 5, 'NATIVE', 'C2'),
+(23, 11, 3, 'LEARNER', 'B2'),
+(24, 11, 2, 'LEARNER', 'A2'),
+(25, 12, 1, 'NATIVE', 'C2'),
+(26, 12, 2, 'LEARNER', 'A2'),
+(27, 13, 2, 'NATIVE', 'C2'),
+(28, 13, 5, 'LEARNER', 'B1'),
+(29, 13, 1, 'LEARNER', 'B2'),
+(30, 14, 4, 'NATIVE', 'C2'),
+(31, 14, 1, 'LEARNER', 'C1'),
+(32, 14, 2, 'LEARNER', 'B2'),
+(33, 15, 3, 'NATIVE', 'C2'),
+(34, 15, 1, 'LEARNER', 'B1'),
+(35, 15, 2, 'LEARNER', 'A2'),
+(36, 16, 1, 'NATIVE', 'C2'),
+(37, 16, 5, 'LEARNER', 'B2'),
+(38, 16, 4, 'LEARNER', 'A2'),
+(39, 16, 2, 'LEARNER', 'B1'),
+(43, 18, 5, 'NATIVE', 'C2'),
+(44, 18, 2, 'LEARNER', 'A2'),
+(45, 19, 4, 'NATIVE', 'C2'),
+(46, 19, 1, 'LEARNER', 'B2'),
+(47, 19, 2, 'LEARNER', 'A1'),
+(48, 20, 3, 'NATIVE', 'C2'),
+(49, 20, 2, 'LEARNER', 'C1'),
+(50, 20, 5, 'LEARNER', 'A2'),
+(51, 21, 6, 'NATIVE', 'C2'),
+(52, 21, 1, 'LEARNER', 'B2'),
+(53, 21, 2, 'LEARNER', 'B1'),
+(54, 22, 6, 'NATIVE', 'C2'),
+(55, 22, 2, 'LEARNER', 'C1'),
+(56, 22, 1, 'LEARNER', 'B1'),
+(57, 23, 7, 'NATIVE', 'C2'),
+(58, 23, 1, 'LEARNER', 'C1'),
+(59, 23, 2, 'LEARNER', 'A2'),
+(60, 24, 7, 'NATIVE', 'C2'),
+(61, 24, 1, 'LEARNER', 'C1'),
+(62, 24, 2, 'LEARNER', 'A1');
+
 -- grupos
 INSERT INTO b_groups (group_id, name, description, image_url, language1_id, language2_id) VALUES
-(1, 'Intercambio Inglés-Español', 'Grupo abierto para practicar conversación casual.', 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80', 1, 2),
-(2, 'Tandem Alemán-Español', 'Buscamos gente seria para mejorar gramática y vocabulario técnico', NULL, 4, 2),
-(3, 'Conversation Club French-English', NULL, NULL, 5, 1),
-(4, 'Club Italiano', 'Espacio para practicar italiano', NULL, 3, 2); -- Italiano - español
+(1, 'Intercambio Inglés-Español', 'Grupo de intercambio Inglés-Español. Todos los niveles.', 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80', 1, 2),
+(2, 'Tandem Alemán-Español', 'Práctica de Alemán y Español. Modalidad mixta.', 'https://images.unsplash.com/photo-1527866959252-deab85ef7d1b?auto=format&fit=crop&w=800&q=80', 4, 2),
+(3, 'Conversation Club French-English', 'Intercambio Francés-Inglés. Sesiones moderadas.', 'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=800&q=80', 5, 1),
+(4, 'Club Italiano', 'Grupo de práctica de Italiano y Español.', 'https://images.unsplash.com/photo-1525874684015-58379d421a52?auto=format&fit=crop&w=800&q=80', 3, 2),
+(5, 'Español - Français (Intercambio)', 'Grupo de conversación Francés-Español.', 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80', 5, 2),
+(6, 'English & Italian Connect', 'Práctica online de Inglés e Italiano.', NULL, 1, 3),
+(7, 'Deutsch-Englisch Stammtisch', 'Intercambio Alemán-Inglés. Revisión gramatical y speaking.', 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80', 4, 1),
+(8, 'Français & Italiano', 'Conversación Francés-Italiano. Nivel intermedio requerido.', NULL, 5, 3),
+(9, 'Erasmus Madrid Survival (ES/EN)', 'Grupo de apoyo lingüístico para estudiantes internacionales en Madrid.', 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80', 1, 2),
+(10, 'Intercâmbio Português-Español', 'Intercambio de Portugués y Español.', NULL, 6, 2),
+(11, 'Türkçe & English Connect', 'Práctica de Turco e Inglés.', 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80', 7, 1),
+(12, 'Francophone & Lusophone Exchange', 'Grupo para el intercambio Francés-Portugués.', NULL, 5, 6),
+(13, 'Italiano & Deutsch Exchange', 'Grupo para práctica de Italiano y Alemán.', NULL, 3, 4);
+
 -- miembros de los grupos
 INSERT INTO group_members (id, user_id, group_id, is_expert) VALUES
-(1, 1, 1, 0), -- Pepe grupo 1
-(2, 4, 1, 1), -- Tom
-(3, 4, 3, 1), -- Tom - experto, nativo inglés
-(4, 5, 1, 0), -- Laura
-(5, 6, 2, 1), -- Anna - experta alemán
-(6, 6, 1, 0), -- Anna en grupo 1
-(7, 3, 1, 0); -- Juan en grupo 1
+(1, 1, 1, 0),
+(2, 2, 1, 0),
+(3, 3, 1, 0),
+(4, 4, 1, 1),
+(5, 5, 1, 0),
+(6, 6, 1, 0),
+(7, 12, 1, 0),
+(8, 13, 1, 1),
+(10, 6, 2, 1),
+(11, 9, 2, 1),
+(12, 10, 2, 0),
+(13, 14, 2, 1),
+(14, 19, 2, 1),
+(15, 4, 3, 1),
+(16, 7, 3, 1),
+(17, 11, 3, 0),
+(18, 12, 3, 0),
+(19, 16, 3, 0),
+(20, 8, 4, 1),
+(21, 15, 4, 1),
+(22, 5, 4, 0),
+(23, 20, 4, 0),
+(25, 7, 5, 1),
+(26, 13, 5, 1),
+(27, 18, 5, 1),
+(28, 11, 5, 0),
+(30, 15, 6, 1),
+(31, 8, 6, 1),
+(32, 12, 6, 0),
+(33, 14, 6, 0),
+(34, 19, 7, 1),
+(35, 14, 7, 1),
+(36, 16, 7, 0),
+(37, 9, 7, 0),
+(38, 10, 7, 0),
+(39, 11, 8, 1),
+(40, 20, 8, 1),
+(41, 8, 8, 0),
+(42, 7, 8, 0),
+(43, 10, 9, 1),
+(44, 12, 9, 1),
+(45, 3, 9, 0),
+(47, 21, 9, 0),
+(48, 22, 9, 0),
+(49, 21, 10, 1),
+(50, 22, 10, 1),
+(51, 3, 10, 0),
+(52, 5, 10, 0),
+(53, 23, 11, 1),
+(54, 24, 11, 1),
+(55, 12, 11, 0),
+(56, 2, 13, 1);
 
 -- eventos
 INSERT INTO events (event_id, group_id, creator_id, type, title, description, start_time, external_link, location, image_url) VALUES
-(1, 1, 4, 'PRESENTIAL', 'Quedada de Inglés', 'Vamos a practicar speaking', '2026-02-10 16:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
-(2, 1, 4, 'PRESENTIAL', 'Nueva quedada Inglés', 'Segunda quedada del grupo', '2026-06-15 17:00:00', NULL, 'Irish Pub, Madrid', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80'),
-(3, 1, 5, 'PRESENTIAL', 'Tapas en español', 'Practicamos español tomando tapas', '2026-05-24 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=800&q=80'),
-(4, 1, 5, 'ONLINE', 'Charla online Inglés-Español', 'Sesión de conversación por videollamada', '2026-06-07 18:00:00', 'https://meet.google.com/speakweb-inglés', NULL, 'https://cdn.pixabay.com/photo/2021/02/05/22/11/laptop-5986208_1280.jpg');
+(1, 1, 4, 'PRESENTIAL', 'Quedada EN/ES en Malasaña', 'Conversación informal (mitad EN, mitad ES).', '2026-04-20 18:00:00', NULL, 'Café en Malasaña, Madrid', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80'),
+(2, 1, 4, 'PRESENTIAL', 'Quedada EN/ES (nivel intermedio)', 'Práctica para nivel intermedio. Rondas cortas.', '2026-04-28 17:00:00', NULL, 'Irish Pub, Madrid', NULL),
+(3, 2, 6, 'PRESENTIAL', 'DE/ES básico + conversación', 'Vocabulario útil y práctica básica.', '2026-05-02 19:30:00', NULL, 'Café cerca de Sol, Madrid', 'https://images.unsplash.com/photo-1538481199005-27155651cdba?q=80&w=800&auto=format&fit=crop'),
+(4, 3, 7, 'ONLINE', 'FR/EN intercambio 60 min', '30 min FR + 30 min EN. Sesión online.', '2026-05-03 18:00:00', 'https://meet.google.com/speakweb-fr-en', NULL, NULL),
+(5, 4, 8, 'PRESENTIAL', 'Aperitivo IT/ES', 'Charla en italiano y español. Tema libre.', '2026-04-24 20:00:00', NULL, 'Trattoria Roma, Madrid', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80'),
+(6, 5, 13, 'PRESENTIAL', 'Tapas FR/ES', 'Práctica de conversación nivel B1+.', '2026-04-24 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(7, 9, 10, 'PRESENTIAL', 'Picnic Erasmus (EN/ES)', 'Encuentro EN/ES al aire libre.', '2026-04-29 13:00:00', NULL, 'Parque del Retiro, Madrid', 'https://images.unsplash.com/photo-1585938389612-a552a28d6914?q=80&w=1720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(8, 1, 4, 'ONLINE', 'Meetup online EN/ES', 'Encuentro virtual. Turnos por tema.', '2026-05-05 20:00:00', 'https://zoom.us/speakweb-meetup', NULL, NULL),
+(9, 7, 19, 'ONLINE', 'DE/EN casos básicos (Q&A)', 'Repaso de casos: nominativo, acusativo, dativo.', '2026-05-04 17:00:00', 'https://teams.microsoft.com/l/meetup-join/klaus', NULL, 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop'),
+(10, 6, 15, 'ONLINE', 'EN/IT conversación por Zoom', 'Charla informal. Nivel A2-B1.', '2026-04-21 19:00:00', 'https://zoom.us/j/987654321', NULL, NULL),
+(11, 5, 13, 'PRESENTIAL', 'Paseo corto por el centro (FR/ES)', 'Ruta a pie por el centro. Punto de encuentro: Plaza Mayor.', '2026-04-21 11:00:00', NULL, 'Plaza Mayor, Madrid', 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=800&q=80'),
+(12, 10, 22, 'ONLINE', 'PT/ES online 45 min', 'Mitad portugués, mitad español.', '2026-04-23 20:30:00', 'https://meet.google.com/speakweb-pt-es', NULL, NULL),
+(13, 11, 23, 'ONLINE', 'TR/EN speaking (principiantes)', 'Conversación guiada con frases útiles.', '2026-04-26 18:30:00', 'https://meet.google.com/speakweb-tr-en', NULL, NULL),
+(14, 13, 2, 'ONLINE', 'Primera toma de contacto IT/DE', 'Sesión introductoria del grupo para evaluar niveles.', '2026-05-20 18:00:00', 'https://meet.google.com/speakweb-it-de', NULL, NULL);
 
 -- participantes en eventos
 INSERT INTO event_participants (id, event_id, user_id) VALUES
-(1, 1, 4), -- Tom en evento 1 (quedada inglés)- pasada
-(2, 1, 3), -- Juan en evento 1
-(3, 1, 5), -- Laura en evento 1
-(4, 1, 6), -- Anna en evento 1
-(5, 1, 1), -- Pepe (Admin) en evento 1
-(6, 2, 1), -- Pepe en evento 2 (quedada inglés)- futura
-(7, 2, 2), -- Mario (Admin) en evento 2
-(8, 2, 3), -- Mario en evento 2
-(9, 2, 4), -- Tom en evento 2
-(10, 2, 5), -- Laura en evento 2
-(11, 2, 6), -- Anna en evento 3
-(12, 3, 5), -- Laura en evento 2
-(13, 4, 3), -- Juan en evento 4 (online)
-(14, 4, 4); -- Tom en evento 4 (online)
+(1, 1, 4),
+(2, 1, 3),
+(3, 1, 5),
+(4, 1, 6),
+(5, 1, 1),
+(6, 1, 13),
+(7, 1, 12),
+(8, 2, 4),
+(9, 2, 3),
+(10, 2, 5),
+(11, 2, 6),
+(13, 2, 2),
+(14, 3, 6),
+(15, 3, 10),
+(16, 3, 9),
+(17, 3, 14),
+(18, 4, 7),
+(19, 4, 4),
+(20, 4, 12),
+(21, 4, 16),
+(22, 5, 8),
+(23, 5, 15),
+(24, 5, 20),
+(25, 5, 5),
+(26, 6, 13),
+(27, 6, 18),
+(28, 6, 11),
+(30, 7, 10),
+(31, 7, 12),
+(32, 7, 21),
+(33, 7, 22),
+(34, 7, 3),
+(35, 8, 4),
+(36, 8, 3),
+(37, 8, 12),
+(39, 9, 19),
+(40, 9, 14),
+(41, 9, 9),
+(42, 9, 16),
+(43, 9, 10),
+(44, 10, 15),
+(45, 10, 8),
+(46, 10, 12),
+(47, 10, 14),
+(48, 11, 13),
+(49, 11, 7),
+(50, 11, 18),
+(52, 12, 22),
+(53, 12, 21),
+(54, 12, 5),
+(55, 12, 3);
 
 -- valoraciones de eventos
-INSERT INTO user_ratings (reviewer_id, reviewed_user_id, event_id, score, comments) VALUES
-(3, 4, 1, 5, '¡Tom es un anfitrión genial, la charla fue muy fluida!'),
-(5, 4, 1, 4, 'Buen evento, aunque el sitio era un poco ruidoso.');
+INSERT INTO user_ratings (rating_id, reviewer_id, reviewed_user_id, event_id, score, comments) VALUES
+(1, 3, 4, 1, 5, 'Pude hablar, Tom llevaba bien los turnos y ayudó con correcciones.'),
+(2, 5, 4, 1, 4, 'Buen ambiente, pero el sitio era ruidoso'),
+(3, 10, 6, 3, 5, 'Anna explicó con calma y me corrigió porque se lo pedí.'),
+(4, 9, 6, 3, 4, 'Muy bien organizado, aunque faltó un poco de tiempo para hablar'),
+(5, 12, 7, 4, 5, 'Muy fluido y bien dividido el tiempo.'),
+(6, 16, 7, 4, 4, 'Todo bien, aunque la videollamada se cortó al principio'),
+(7, 20, 8, 5, 5, 'Se habló mucho y sin presión. Marco hizo que todos participaran.'),
+(8, 5, 8, 5, 4, 'Me gustó, pero éramos bastantes y se mezclaron idiomas.'),
+(9, 10, 19, 9, 5, 'Muy claro y con ejemplos.'),
+(10, 14, 19, 9, 4, 'Bien explicado y ambiente agradable');
+
 -- denuncias o reportes
-INSERT INTO user_reports (reporter_id, reported_user_id, reason) VALUES
-(4, 3, 'El usuario no se presentó a la quedada'),
-(5, 4, 'Me ha enviado mensajes con spam durante la videollamada');
+INSERT INTO user_reports (report_id, reporter_id, reported_user_id, reason) VALUES
+(1, 4, 3, 'No se presentó a la quedada.'),
+(2, 5, 4, 'Me ha enviado enlaces con spam por el chat de la videollamada.'),
+(3, 12, 18, 'Todo el rato hacía comentarios feos'),
+(4, 15, 8, 'Durante una videollamada insistió en hablar de su curso en vez de practicar idiomas'),
+(5, 7, 12, 'No se presentó');

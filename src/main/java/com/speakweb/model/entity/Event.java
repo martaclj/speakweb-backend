@@ -36,23 +36,23 @@ public class Event implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "creator_id")
-	private UserEntity creator;
+	private UserEntity creator; // el que creó el evento (experto o admin)
 	
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING) // guarda ONLINE o PRESENTIAL como txt en la bd.
 	private EventType type; // ONLINE o PRESENTIAL
 	
 	private String title;
 	private String description;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm") // formato para Angular
 	@Column(name = "start_time")
 	private LocalDateTime startTime;
 	
 	@Column(name = "external_link")
-	private String externalLink;
+	private String externalLink; // solo si online: enlace a google meet o zoom, etc
 	
 	@Column(name ="location")
-	private String location;
+	private String location; // solo si presential: ubicación del evento
 	@Column(name ="image_url")
 	private String imageUrl;
 }
