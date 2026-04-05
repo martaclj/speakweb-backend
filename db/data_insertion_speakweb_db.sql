@@ -1,4 +1,5 @@
 USE speakweb_db;
+
 -- usuarios
 INSERT INTO users (user_id, name, surname, email, password, role, avatar_url, bio) VALUES
 (1, 'Pepe', 'Rodríguez', 'admin1@speakweb.com', '$2a$10$AsN5xvpLyNtiwZmHHEMQeOiPm0CJmlLT9f4ev9NKyKO2f0EoaqPIC', 'ADMIN', 'https://images.unsplash.com/photo-1589254065909-b7086229d08c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Administrador del sistema.'),
@@ -24,7 +25,8 @@ INSERT INTO users (user_id, name, surname, email, password, role, avatar_url, bi
 (21, 'Tiago', 'Silva', 'tiago@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=200&q=80', 'PT nativo. EN B2. ES B1. Horario: noches entre semana.'),
 (22, 'Inés', 'Costa', 'ines@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'PT nativa (Oporto). ES C1. Puedo ayudar con portugués conversacional.'),
 (23, 'Can', 'Yilmaz', 'can@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=200&q=80', 'TR nativo. EN C1. ES A2. Prefiero grupos pequeños.'),
-(24, 'Leyla', 'Demir', 'leyla@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1592621385612-4d7129426394?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'TR nativa. EN C1. ES A1. Erasmus en Madrid, quiero practicar mucho.');
+(24, 'Leyla', 'Demir', 'leyla@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1592621385612-4d7129426394?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'TR nativa. EN C1. ES A1. Erasmus en Madrid, quiero practicar mucho.'),
+(25, 'Alex', 'Mora', 'alex.mora@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=200&q=80', 'ES nativo. EN C1.');
 
 -- idiomas
 INSERT INTO languages (language_id, code, name) VALUES
@@ -96,7 +98,9 @@ INSERT INTO user_languages (id, user_id, language_id, type, level) VALUES
 (59, 23, 2, 'LEARNER', 'A2'),
 (60, 24, 7, 'NATIVE', 'C2'),
 (61, 24, 1, 'LEARNER', 'C1'),
-(62, 24, 2, 'LEARNER', 'A1');
+(62, 24, 2, 'LEARNER', 'A1'),
+(63, 25, 2, 'NATIVE', 'C2'),
+(64, 25, 1, 'LEARNER', 'C1');
 
 -- grupos
 INSERT INTO b_groups (group_id, name, description, image_url, language1_id, language2_id) VALUES
@@ -111,7 +115,7 @@ INSERT INTO b_groups (group_id, name, description, image_url, language1_id, lang
 (9, 'Erasmus Madrid Survival (ES/EN)', 'Grupo de apoyo lingüístico para estudiantes internacionales en Madrid.', 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80', 1, 2),
 (10, 'Intercâmbio Português-Español', 'Intercambio de Portugués y Español.', NULL, 6, 2),
 (11, 'Türkçe & English Connect', 'Práctica de Turco e Inglés.', 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80', 7, 1),
-(12, 'Francophone & Lusophone Exchange', 'Grupo para el intercambio Francés-Portugués.', NULL, 5, 6),
+(12, 'French & Portuguese Exchange', 'Grupo para el intercambio Francés-Portugués.', NULL, 5, 6),
 (13, 'Italiano & Deutsch Exchange', 'Grupo para práctica de Italiano y Alemán.', NULL, 3, 4);
 
 -- miembros de los grupos
@@ -167,13 +171,17 @@ INSERT INTO group_members (id, user_id, group_id, is_expert) VALUES
 (53, 23, 11, 1),
 (54, 24, 11, 1),
 (55, 12, 11, 0),
-(56, 2, 13, 1);
+(56, 2, 13, 1),
+(57, 4, 6, 1),
+(58, 4, 7, 1),
+(59, 4, 9, 1),
+(60, 4, 11, 1);
 
 -- eventos
 INSERT INTO events (event_id, group_id, creator_id, type, title, description, start_time, external_link, location, image_url) VALUES
 (1, 1, 4, 'PRESENTIAL', 'Quedada EN/ES en Malasaña', 'Conversación informal (mitad EN, mitad ES).', '2026-04-20 18:00:00', NULL, 'Café en Malasaña, Madrid', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80'),
 (2, 1, 4, 'PRESENTIAL', 'Quedada EN/ES (nivel intermedio)', 'Práctica para nivel intermedio. Rondas cortas.', '2026-04-28 17:00:00', NULL, 'Irish Pub, Madrid', NULL),
-(3, 2, 6, 'PRESENTIAL', 'DE/ES básico + conversación', 'Vocabulario útil y práctica básica.', '2026-05-02 19:30:00', NULL, 'Café cerca de Sol, Madrid', 'https://images.unsplash.com/photo-1538481199005-27155651cdba?q=80&w=800&auto=format&fit=crop'),
+(3, 2, 6, 'PRESENTIAL', 'DE/ES básico + conversación', 'Vocabulario útil y práctica básica.', '2026-05-02 19:30:00', NULL, 'Café cerca de Sol, Madrid', 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
 (4, 3, 7, 'ONLINE', 'FR/EN intercambio 60 min', '30 min FR + 30 min EN. Sesión online.', '2026-05-03 18:00:00', 'https://meet.google.com/speakweb-fr-en', NULL, NULL),
 (5, 4, 8, 'PRESENTIAL', 'Aperitivo IT/ES', 'Charla en italiano y español. Tema libre.', '2026-04-24 20:00:00', NULL, 'Trattoria Roma, Madrid', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80'),
 (6, 5, 13, 'PRESENTIAL', 'Tapas FR/ES', 'Práctica de conversación nivel B1+.', '2026-04-24 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
@@ -183,8 +191,11 @@ INSERT INTO events (event_id, group_id, creator_id, type, title, description, st
 (10, 6, 15, 'ONLINE', 'EN/IT conversación por Zoom', 'Charla informal. Nivel A2-B1.', '2026-04-21 19:00:00', 'https://zoom.us/j/987654321', NULL, NULL),
 (11, 5, 13, 'PRESENTIAL', 'Paseo corto por el centro (FR/ES)', 'Ruta a pie por el centro. Punto de encuentro: Plaza Mayor.', '2026-04-21 11:00:00', NULL, 'Plaza Mayor, Madrid', 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=800&q=80'),
 (12, 10, 22, 'ONLINE', 'PT/ES online 45 min', 'Mitad portugués, mitad español.', '2026-04-23 20:30:00', 'https://meet.google.com/speakweb-pt-es', NULL, NULL),
-(13, 11, 23, 'ONLINE', 'TR/EN speaking (principiantes)', 'Conversación guiada con frases útiles.', '2026-04-26 18:30:00', 'https://meet.google.com/speakweb-tr-en', NULL, NULL),
-(14, 13, 2, 'ONLINE', 'Primera toma de contacto IT/DE', 'Sesión introductoria del grupo para evaluar niveles.', '2026-05-20 18:00:00', 'https://meet.google.com/speakweb-it-de', NULL, NULL);
+(13, 11, 23, 'ONLINE', 'TR/EN speaking (principiantes)', 'Conversación guiada con frases útiles.', '2026-01-26 18:30:00', 'https://meet.google.com/speakweb-tr-en', NULL, NULL),
+(14, 13, 2, 'ONLINE', 'Primera toma de contacto IT/DE', 'Sesión introductoria del grupo para evaluar niveles.', '2026-05-20 18:00:00', 'https://meet.google.com/speakweb-it-de', NULL, NULL),
+(15, 1, 1, 'PRESENTIAL', 'Language Café Marzo', 'Nuestra reunión mensual para practicar inglés y español.', '2026-03-20 19:00:00', NULL, 'Café Berlín, Calle Pez 8, Madrid', 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800'),
+(16, 2, 3, 'PRESENTIAL', 'Prueba Pasada Alemán', 'Evento de prueba para probar valoraciones.', '2026-02-10 18:00:00', NULL, 'Berlín Café, Madrid', NULL),
+(17, 5, 5, 'ONLINE', 'Prueba Pasada Francés', 'Test de sistema de valoraciones.', '2026-03-05 19:00:00', 'https://meet.google.com/test-valorar', NULL, NULL);
 
 -- participantes en eventos
 INSERT INTO event_participants (id, event_id, user_id) VALUES
@@ -238,7 +249,10 @@ INSERT INTO event_participants (id, event_id, user_id) VALUES
 (52, 12, 22),
 (53, 12, 21),
 (54, 12, 5),
-(55, 12, 3);
+(55, 12, 3),
+(56, 9, 4),
+(57, 10, 4),
+(58, 7, 4);
 
 -- valoraciones de eventos
 INSERT INTO user_ratings (rating_id, reviewer_id, reviewed_user_id, event_id, score, comments) VALUES
@@ -260,3 +274,5 @@ INSERT INTO user_reports (report_id, reporter_id, reported_user_id, reason) VALU
 (3, 12, 18, 'Todo el rato hacía comentarios feos'),
 (4, 15, 8, 'Durante una videollamada insistió en hablar de su curso en vez de practicar idiomas'),
 (5, 7, 12, 'No se presentó');
+
+DELETE FROM users WHERE user_id = 25;
