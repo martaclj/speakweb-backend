@@ -34,3 +34,7 @@ build/
 
 ### Others ###
 .DS_Store
+
+### Secretos / config local (no subir) ###
+.env
+application-local.properties
