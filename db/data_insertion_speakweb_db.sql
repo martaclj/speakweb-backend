@@ -28,6 +28,10 @@ INSERT INTO users (user_id, name, surname, email, password, role, avatar_url, bi
 (24, 'Leyla', 'Demir', 'leyla@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1592621385612-4d7129426394?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'TR nativa. EN C1. ES A1. Erasmus en Madrid, quiero practicar mucho.'),
 (25, 'Alex', 'Mora', 'alex.mora@speakweb.com', '$2a$10$Y9iaoeJEC3snshbf1bgxSOO/I7tYvOETfOzIVukEphfYR9HZGJpz6', 'USER', 'https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=200&q=80', 'ES nativo. EN C1.');
 
+-- usuario invitado
+INSERT INTO users (user_id, name, surname, email, password, role, avatar_url, bio) VALUES
+(26, 'Invitado', 'Speakweb', 'invitado@speakweb.com', '$2a$10$jrAxTy.KdDE4s8K2GSnBPOGSLNF8hnMJuO1je0PFT7t1ekTTVVm.y', 'USER', 'https://ui-avatars.com/api/?name=Invitado&background=D1A074&color=ffffff', 'Cuenta de demostración para visitantes.');
+
 -- idiomas
 INSERT INTO languages (language_id, code, name) VALUES
 (1, 'EN', 'English'),
@@ -274,5 +278,3 @@ INSERT INTO user_reports (report_id, reporter_id, reported_user_id, reason) VALU
 (3, 12, 18, 'Todo el rato hacía comentarios feos'),
 (4, 15, 8, 'Durante una videollamada insistió en hablar de su curso en vez de practicar idiomas'),
 (5, 7, 12, 'No se presentó');
-
-DELETE FROM users WHERE user_id = 25;
