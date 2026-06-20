@@ -183,20 +183,20 @@ INSERT INTO group_members (id, user_id, group_id, is_expert) VALUES
 
 -- eventos
 INSERT INTO events (event_id, group_id, creator_id, type, title, description, start_time, external_link, location, image_url) VALUES
-(1, 1, 4, 'PRESENTIAL', 'Quedada EN/ES en Malasaña', 'Conversación informal (mitad EN, mitad ES).', '2026-04-20 18:00:00', NULL, 'Café en Malasaña, Madrid', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80'),
-(2, 1, 4, 'PRESENTIAL', 'Quedada EN/ES (nivel intermedio)', 'Práctica para nivel intermedio. Rondas cortas.', '2026-04-28 17:00:00', NULL, 'Irish Pub, Madrid', NULL),
-(3, 2, 6, 'PRESENTIAL', 'DE/ES básico + conversación', 'Vocabulario útil y práctica básica.', '2026-05-02 19:30:00', NULL, 'Café cerca de Sol, Madrid', 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-(4, 3, 7, 'ONLINE', 'FR/EN intercambio 60 min', '30 min FR + 30 min EN. Sesión online.', '2026-05-03 18:00:00', 'https://meet.google.com/speakweb-fr-en', NULL, NULL),
-(5, 4, 8, 'PRESENTIAL', 'Aperitivo IT/ES', 'Charla en italiano y español. Tema libre.', '2026-04-24 20:00:00', NULL, 'Trattoria Roma, Madrid', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80'),
-(6, 5, 13, 'PRESENTIAL', 'Tapas FR/ES', 'Práctica de conversación nivel B1+.', '2026-04-24 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-(7, 9, 10, 'PRESENTIAL', 'Picnic Erasmus (EN/ES)', 'Encuentro EN/ES al aire libre.', '2026-04-29 13:00:00', NULL, 'Parque del Retiro, Madrid', 'https://images.unsplash.com/photo-1585938389612-a552a28d6914?q=80&w=1720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-(8, 1, 4, 'ONLINE', 'Meetup online EN/ES', 'Encuentro virtual. Turnos por tema.', '2026-05-05 20:00:00', 'https://zoom.us/speakweb-meetup', NULL, NULL),
-(9, 7, 19, 'ONLINE', 'DE/EN casos básicos (Q&A)', 'Repaso de casos: nominativo, acusativo, dativo.', '2026-05-04 17:00:00', 'https://teams.microsoft.com/l/meetup-join/klaus', NULL, 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop'),
-(10, 6, 15, 'ONLINE', 'EN/IT conversación por Zoom', 'Charla informal. Nivel A2-B1.', '2026-04-21 19:00:00', 'https://zoom.us/j/987654321', NULL, NULL),
-(11, 5, 13, 'PRESENTIAL', 'Paseo corto por el centro (FR/ES)', 'Ruta a pie por el centro. Punto de encuentro: Plaza Mayor.', '2026-04-21 11:00:00', NULL, 'Plaza Mayor, Madrid', 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=800&q=80'),
-(12, 10, 22, 'ONLINE', 'PT/ES online 45 min', 'Mitad portugués, mitad español.', '2026-04-23 20:30:00', 'https://meet.google.com/speakweb-pt-es', NULL, NULL),
-(13, 11, 23, 'ONLINE', 'TR/EN speaking (principiantes)', 'Conversación guiada con frases útiles.', '2026-01-26 18:30:00', 'https://meet.google.com/speakweb-tr-en', NULL, NULL),
-(14, 13, 2, 'ONLINE', 'Primera toma de contacto IT/DE', 'Sesión introductoria del grupo para evaluar niveles.', '2026-05-20 18:00:00', 'https://meet.google.com/speakweb-it-de', NULL, NULL),
+(1, 1, 4, 'PRESENTIAL', 'Quedada EN/ES en Malasaña', 'Conversación informal (mitad EN, mitad ES).', '2031-04-20 18:00:00', NULL, 'Café en Malasaña, Madrid', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80'),
+(2, 1, 4, 'PRESENTIAL', 'Quedada EN/ES (nivel intermedio)', 'Práctica para nivel intermedio. Rondas cortas.', '2031-04-28 17:00:00', NULL, 'Irish Pub, Madrid', NULL),
+(3, 2, 6, 'PRESENTIAL', 'DE/ES básico + conversación', 'Vocabulario útil y práctica básica.', '2031-05-02 19:30:00', NULL, 'Café cerca de Sol, Madrid', 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(4, 3, 7, 'ONLINE', 'FR/EN intercambio 60 min', '30 min FR + 30 min EN. Sesión online.', '2031-05-03 18:00:00', 'https://meet.google.com/speakweb-fr-en', NULL, NULL),
+(5, 4, 8, 'PRESENTIAL', 'Aperitivo IT/ES', 'Charla en italiano y español. Tema libre.', '2031-04-24 20:00:00', NULL, 'Trattoria Roma, Madrid', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80'),
+(6, 5, 13, 'PRESENTIAL', 'Tapas FR/ES', 'Práctica de conversación nivel B1+.', '2031-04-24 19:00:00', NULL, 'Bar La Plaza, Sevilla', 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(7, 9, 10, 'PRESENTIAL', 'Picnic Erasmus (EN/ES)', 'Encuentro EN/ES al aire libre.', '2031-04-29 13:00:00', NULL, 'Parque del Retiro, Madrid', 'https://images.unsplash.com/photo-1585938389612-a552a28d6914?q=80&w=1720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(8, 1, 4, 'ONLINE', 'Meetup online EN/ES', 'Encuentro virtual. Turnos por tema.', '2031-05-05 20:00:00', 'https://zoom.us/speakweb-meetup', NULL, NULL),
+(9, 7, 19, 'ONLINE', 'DE/EN casos básicos (Q&A)', 'Repaso de casos: nominativo, acusativo, dativo.', '2031-05-04 17:00:00', 'https://teams.microsoft.com/l/meetup-join/klaus', NULL, 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop'),
+(10, 6, 15, 'ONLINE', 'EN/IT conversación por Zoom', 'Charla informal. Nivel A2-B1.', '2031-04-21 19:00:00', 'https://zoom.us/j/987654321', NULL, NULL),
+(11, 5, 13, 'PRESENTIAL', 'Paseo corto por el centro (FR/ES)', 'Ruta a pie por el centro. Punto de encuentro: Plaza Mayor.', '2031-04-21 11:00:00', NULL, 'Plaza Mayor, Madrid', 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=800&q=80'),
+(12, 10, 22, 'ONLINE', 'PT/ES online 45 min', 'Mitad portugués, mitad español.', '2031-04-23 20:30:00', 'https://meet.google.com/speakweb-pt-es', NULL, NULL),
+(13, 11, 23, 'ONLINE', 'TR/EN speaking (principiantes)', 'Conversación guiada con frases útiles.', '2031-01-26 18:30:00', 'https://meet.google.com/speakweb-tr-en', NULL, NULL),
+(14, 13, 2, 'ONLINE', 'Primera toma de contacto IT/DE', 'Sesión introductoria del grupo para evaluar niveles.', '2031-05-20 18:00:00', 'https://meet.google.com/speakweb-it-de', NULL, NULL),
 (15, 1, 1, 'PRESENTIAL', 'Language Café Marzo', 'Nuestra reunión mensual para practicar inglés y español.', '2026-03-20 19:00:00', NULL, 'Café Berlín, Calle Pez 8, Madrid', 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800'),
 (16, 2, 3, 'PRESENTIAL', 'Prueba Pasada Alemán', 'Evento de prueba para probar valoraciones.', '2026-02-10 18:00:00', NULL, 'Berlín Café, Madrid', NULL),
 (17, 5, 5, 'ONLINE', 'Prueba Pasada Francés', 'Test de sistema de valoraciones.', '2026-03-05 19:00:00', 'https://meet.google.com/test-valorar', NULL, NULL);
@@ -278,3 +278,16 @@ INSERT INTO user_reports (report_id, reporter_id, reported_user_id, reason) VALU
 (3, 12, 18, 'Todo el rato hacía comentarios feos'),
 (4, 15, 8, 'Durante una videollamada insistió en hablar de su curso en vez de practicar idiomas'),
 (5, 7, 12, 'No se presentó');
+
+-- invitado: idiomas, grupos y eventos para la demo
+INSERT INTO user_languages (id, user_id, language_id, type, level) VALUES
+(65, 26, 2, 'NATIVE', 'C2'),
+(66, 26, 1, 'LEARNER', 'C1');
+
+INSERT INTO group_members (id, user_id, group_id, is_expert) VALUES
+(61, 26, 1, 0),
+(62, 26, 9, 0);
+
+INSERT INTO event_participants (id, event_id, user_id) VALUES
+(59, 1, 26),
+(60, 15, 26);
